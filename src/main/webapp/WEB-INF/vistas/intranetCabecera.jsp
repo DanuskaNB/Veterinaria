@@ -66,27 +66,8 @@
      	</li>
      	
      	
-     	
-     	
-     	
-   
-    
-    
-	<%-- <ul class="nav navbar-nav navbar-left">
-        <c:forEach var="x" items="${sessionScope.objRoles}">
-            <li>
-                   ${x.nombre} 
-            </li>
-        </c:forEach>
-    </ul><br><a>Tipo:</a>
-
- --%>
-
-
-
-     	
-     	
-     </ul>
+ 	
+  </ul>
      
     
   

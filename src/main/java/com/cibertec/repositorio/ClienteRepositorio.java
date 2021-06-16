@@ -12,5 +12,7 @@ public interface ClienteRepositorio extends JpaRepository<Cliente, Integer>{
 
 	@Query("select u from Cliente u group by u.nombres")
 	public abstract List<Cliente> listaClientes();
+	
+	
 
 }

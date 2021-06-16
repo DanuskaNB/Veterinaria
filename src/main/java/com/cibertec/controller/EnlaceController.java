@@ -22,8 +22,8 @@ public class EnlaceController {
 	@RequestMapping("/verRegistroProducto")
 	public String verRegistraProducto() {	return "intranetRegistroProducto";	}
 
-	@RequestMapping("/verRegistroReclamo")
-	public String verRegistraReclamo() {	return "intranetRegistroReclamo";	}
+	@RequestMapping("/verCrudServicio")
+	public String verCrudServicio() {	return "intranetCrudServicio";	}
 	
 	@RequestMapping("/verRegistroSede")
 	public String verRegistroSede() {	return "intranetRegistroSede";	}
