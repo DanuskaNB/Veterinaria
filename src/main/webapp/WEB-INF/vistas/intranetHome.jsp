@@ -28,7 +28,7 @@
 </head>
 
 
-<style>
+<!-- <style>
 
 .general {
    width: 80%;
@@ -40,14 +40,10 @@
 }
 
 
-
-</style>
+</style> -->
 <body>
 
 
-<!-- <style type="text/css">
-body {background:url("images/vete2.jpg");}
-</style>  -->
 <div class="main h-screen w-screen">
 	<div class="menu">
 		<jsp:include page="intranetCabecera.jsp" />
