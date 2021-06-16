@@ -24,7 +24,7 @@
     </ul>
     
     <ul class="nav navbar-nav navbar-left">
-       	<li><a href="verIntranetHome">Mi mascotaa</a></li>
+       	<li><a href="verIntranetHome">Mi mascota</a></li>
     </ul>
     
     <ul class="nav navbar-nav navbar-left">
