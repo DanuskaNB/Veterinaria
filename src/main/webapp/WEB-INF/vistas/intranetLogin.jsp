@@ -20,55 +20,45 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/bootstrapValidator.css">
 
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
 <title>Veterinaria</title>
 </head>   
 <body>    
 
 
-        <div class="top-content">
-            <div class="inner-bg">
-                <div class="container">
-                	<c:if test="${requestScope.mensaje != null}">
+        <div class="grid grid-cols-2 w-screen h-screen">
+        <div>
+            <img src="https://www.sadenir.com.uy/wp-content/uploads/2020/11/veterinarian-check-ing-puppy-s-health-2.jpg"
+            class="h-screen filter brightness-75"
+        >
+        </div>
+        <div class="grid col-span-1 row-span-3 gap-y-10 flex h-screen justify-center content-center">
+            <c:if test="${requestScope.mensaje != null}">
                		<div class="alert alert-danger fade in" id="success-alert">
 				        <a href="#" class="close" data-dismiss="alert">&times;</a>
 				        <strong>${requestScope.mensaje}</strong>
 				    </div>
 				    </c:if>
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 form-box">
-                        	<div class="form-top">
-                        		<div class="form-group">
-                        		<center>
-                        			<h3>Sistema de Veterinaria</h3>
-                        			<img src= "images/veterinaria.png">
-                            	</center>
-                        		</div>
-                            </div>
-                            <div class="form-bottom">
-			                    <form id="id_form"  action="login" method="post" class="login-form">
-			                    	<div class="form-group">
-			                    	
-			                    		<label class="sr-only" for="form-username">Usuario</label>
-			                        	<input type="text" name="login" placeholder="Ingrese Usuario" class="form-username form-control" id="form-username" maxlength="20" value="carlos">
-			                        	
-			                        </div>
-			                        <div class="form-group">
-			                     
-			                        	<label class="sr-only" for="form-password">Contraseña</label>
-			                        	<input type="password" name="password" placeholder="Ingrese Contraseña" class="form-password form-control" id="form-password" maxlength="20" value="carlos">
-			                        </div>
-			                         
-			                        <button type="submit" class="btn btn-primary" >Ingresar</button>
-			                
-			                    </form>
-		                    </div>
-                        </div>   
+            <img src="https://i.pinimg.com/originals/cf/9c/0b/cf9c0b4e69a7e2433c2913c46f940713.png" class="w-96 h-48">            
+            <h3 class="text-center text-2xl text-purple-700 font-bold uppercase tracking-wider">Sistema de Veterinaria</h3>            
+                <form id="id_form" action="login" method="post" class="flex flex-col login-form">
+                    <div class="mb-6 pt-3 rounded bg-gray-200 form-group">
+                        <label class="block text-gray-700 text-sm font-bold mb-2 ml-3" for="form-username">Usuario</label>
+                        <input type="text" id="form-username" maxlength="20" name="login" class="form-control bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-500 transition duration-500 px-3 pb-3">
                     </div>
-                    
-                </div>
-            </div>
-            
+                    <div class="mb-6 pt-3 rounded bg-gray-200 form-group">
+                        <label class="block text-gray-700 text-sm font-bold mb-2 ml-3" for="password">Contraseña</label>
+                        <input type="password" id="form-password" maxlength="20" name="password" class="form-control bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-500 transition duration-500 px-3 pb-3">
+                    </div>
+                    <div class="flex justify-end">
+                        <a href="#" class="text-sm text-purple-500 hover:text-purple-600 hover:underline mb-6">¿No tienes una cuenta?</a>
+                    </div>
+                    <button class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200" type="submit">Iniciar sesión</button>
+                </form>
         </div>
+        
+    </div>
 
 
      
