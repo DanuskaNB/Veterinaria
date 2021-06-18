@@ -123,7 +123,7 @@
 		                                    
 		                                    <div class="form-group">
 		                                        <div class="col-lg-9 col-lg-offset-3">
-		                                        	<button type="submit" id="id_registrar"  class="btn btn-primary">REGISTRATE</button>
+		                                        	<button type="submit" id="id_registrar"  class="btn btn-primary">REGISTRATE PAPI</button>
 		                                        </div>
 		                                    </div>
 		                                </div>
