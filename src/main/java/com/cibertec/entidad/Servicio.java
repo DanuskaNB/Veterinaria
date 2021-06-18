@@ -2,13 +2,19 @@ package com.cibertec.entidad;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "servicio")
@@ -16,15 +22,21 @@ public class Servicio {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idservicio")
 	private int idServicio;
 	private String nombre;
 	private String descripcion;
 	private double precio;
 	private String horario;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechaRegistro;
-
+	
+	
+	@Lob
 	private byte[] foto1;
 
 	public int getIdServicio() {
