@@ -65,55 +65,73 @@
 				<div class="modal-content">
 				<div class="modal-header" style="padding: 35px 50px">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4><span class="glyphicon glyphicon-ok-sign"></span> Registro de Producto</h4>
+					<h4><span class="glyphicon glyphicon-ok-sign"></span> Registrate!</h4>
 				</div>
 				<div class="modal-body" style="padding: 20px 10px;">
 						<form id="id_form_registra" accept-charset="UTF-8" action="registraProducto" class="form-horizontal"     method="post">
 		                    <div class="panel-group" id="steps">
 		                        <!-- Step 1 -->
 		                        <div class="panel panel-default">
-		                            <div class="panel-heading">
+		                           <!--  <div class="panel-heading">
 		                                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#steps" href="#stepOne">Datos del Producto</a></h4>
-		                            </div>
+		                            </div> -->
 		                            <div id="stepOne" class="panel-collapse collapse in">
 		                                <div class="panel-body">
+		                                
 		                                     <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_reg_nombre">Nombre</label>
 		                                        <div class="col-lg-5">
 													<input class="form-control" id="id_reg_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="20"/>
 		                                        </div>
 		                                    </div>
+		                                    
 		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_serie">Serie</label>
+		                                        <label class="col-lg-3 control-label" for="id_reg_serie">Apellidos</label>
 		                                        <div class="col-lg-5">
 													<input class="form-control" id="id_reg_serie" name="serie" placeholder="Ingrese la serie" type="text" maxlength="8"/>
 		                                        </div>
 		                                    </div>
+		                                    
 		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_precio">Precio</label>
+		                                        <label class="col-lg-3 control-label" for="id_reg_precio">DNI</label>
 		                                        <div class="col-lg-5">
 													<input class="form-control" id="id_reg_precio" name="precio" placeholder="Ingrese el precio" type="text" maxlength="9"/>
 		                                        </div>
 		                                    </div>
+		                                    
 		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_stock">Stock</label>
+		                                        <label class="col-lg-3 control-label" for="id_reg_stock">Correo</label>
 		                                        <div class="col-lg-5">
 													<input class="form-control" id="id_reg_stock" name="stock" placeholder="Ingrese el stock" type="text" maxlength="9"/>
 		                                        </div>
 		                                    </div>
+		                                    
 		                                    <div class="form-group">
+		                                        <label class="col-lg-3 control-label" for="id_reg_stock">Contraseña</label>
+		                                        <div class="col-lg-5">
+													<input class="form-control" id="id_reg_stock" name="stock" placeholder="Ingrese el stock" type="text" maxlength="9"/>
+		                                        </div>
+		                                    </div>
+		                                    
+		                                    <div class="form-group">
+		                                        <label class="col-lg-3 control-label" for="id_reg_stock">Dirección</label>
+		                                        <div class="col-lg-5">
+													<input class="form-control" id="id_reg_stock" name="stock" placeholder="Ingrese el stock" type="text" maxlength="9"/>
+		                                        </div>
+		                                    </div>
+		                                   <!--  <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_reg_marca">Marca</label>
 		                                        <div class="col-lg-5">
 													<select id="id_reg_marca" name="marca.idMarca" class='form-control'>
 							                            	<option value=" ">[Seleccione]</option>    
 							                         </select>
 		                                        </div>
-		                                    </div>
+		                                    </div> -->
 		                                   
 		                                    
 		                                    <div class="form-group">
 		                                        <div class="col-lg-9 col-lg-offset-3">
-		                                        	<button type="submit" class="btn btn-primary">REGISTRA</button>
+		                                        	<button type="submit" class="btn btn-primary">REGISTRATE</button>
 		                                        </div>
 		                                    </div>
 		                                </div>
