@@ -24,7 +24,7 @@
     </ul>
     
     <ul class="nav navbar-nav navbar-left">
-       	<li><a href="verRegistraMascota">Mi mascotaS</a></li>
+       	<li><a href="verRegistraMascota">Mi mascotas</a></li>
     </ul>
     
     <ul class="nav navbar-nav navbar-left">
