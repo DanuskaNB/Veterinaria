@@ -16,19 +16,19 @@
        	<li><a>Bienvenido Sr(a): ${sessionScope.objUsuario.nombreCompleto}</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-left">
-       	<li><a href="verIntranetHome">Productos</a></li>
+       	<li><a href="verRegistroProducto">Productos</a></li>
     </ul>
     
     <ul class="nav navbar-nav navbar-left">
-       	<li><a href="verIntranetHome">Servicios</a></li>
+       	<li><a href="verCrudServicio">Servicios</a></li>
     </ul>
     
     <ul class="nav navbar-nav navbar-left">
-       	<li><a href="verIntranetHome">Mi mascotaS</a></li>
+       	<li><a href="verRegistraMascota">Mis mascotas</a></li>
     </ul>
     
     <ul class="nav navbar-nav navbar-left">
-       	<li><a href="verIntranetHome">Pedidos</a></li>
+       	<li><a href="verCrudPedido">Pedidos</a></li>
     </ul>
     
     <ul class="nav navbar-nav">
