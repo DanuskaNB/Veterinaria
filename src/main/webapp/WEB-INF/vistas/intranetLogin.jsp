@@ -52,12 +52,82 @@
                         <input type="password" id="form-password" maxlength="20" name="password" class="form-control bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-500 transition duration-500 px-3 pb-3">
                     </div>
                     <div class="flex justify-end">
-                        <a href="#" class="text-sm text-purple-500 hover:text-purple-600 hover:underline mb-6">¿No tienes una cuenta?</a>
+                        <a id="validateBtnw2"   data-toggle='modal' onclick="registrar();" href="#" class="text-sm text-purple-500 hover:text-purple-600 hover:underline mb-6">¿No tienes una cuenta?</a>
                     </div>
+                     
                     <button class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200" type="submit">Iniciar sesión</button>
                 </form>
         </div>
-        
+         <div class="modal fade" id="idModalRegistra" >
+			<div class="modal-dialog" style="width: 60%">
+		
+				<!-- Modal content-->
+				<div class="modal-content">
+				<div class="modal-header" style="padding: 35px 50px">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4><span class="glyphicon glyphicon-ok-sign"></span> Registro de Producto</h4>
+				</div>
+				<div class="modal-body" style="padding: 20px 10px;">
+						<form id="id_form_registra" accept-charset="UTF-8" action="registraProducto" class="form-horizontal"     method="post">
+		                    <div class="panel-group" id="steps">
+		                        <!-- Step 1 -->
+		                        <div class="panel panel-default">
+		                            <div class="panel-heading">
+		                                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#steps" href="#stepOne">Datos del Producto</a></h4>
+		                            </div>
+		                            <div id="stepOne" class="panel-collapse collapse in">
+		                                <div class="panel-body">
+		                                     <div class="form-group">
+		                                        <label class="col-lg-3 control-label" for="id_reg_nombre">Nombre</label>
+		                                        <div class="col-lg-5">
+													<input class="form-control" id="id_reg_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="20"/>
+		                                        </div>
+		                                    </div>
+		                                    <div class="form-group">
+		                                        <label class="col-lg-3 control-label" for="id_reg_serie">Serie</label>
+		                                        <div class="col-lg-5">
+													<input class="form-control" id="id_reg_serie" name="serie" placeholder="Ingrese la serie" type="text" maxlength="8"/>
+		                                        </div>
+		                                    </div>
+		                                    <div class="form-group">
+		                                        <label class="col-lg-3 control-label" for="id_reg_precio">Precio</label>
+		                                        <div class="col-lg-5">
+													<input class="form-control" id="id_reg_precio" name="precio" placeholder="Ingrese el precio" type="text" maxlength="9"/>
+		                                        </div>
+		                                    </div>
+		                                    <div class="form-group">
+		                                        <label class="col-lg-3 control-label" for="id_reg_stock">Stock</label>
+		                                        <div class="col-lg-5">
+													<input class="form-control" id="id_reg_stock" name="stock" placeholder="Ingrese el stock" type="text" maxlength="9"/>
+		                                        </div>
+		                                    </div>
+		                                    <div class="form-group">
+		                                        <label class="col-lg-3 control-label" for="id_reg_marca">Marca</label>
+		                                        <div class="col-lg-5">
+													<select id="id_reg_marca" name="marca.idMarca" class='form-control'>
+							                            	<option value=" ">[Seleccione]</option>    
+							                         </select>
+		                                        </div>
+		                                    </div>
+		                                   
+		                                    
+		                                    <div class="form-group">
+		                                        <div class="col-lg-9 col-lg-offset-3">
+		                                        	<button type="submit" class="btn btn-primary">REGISTRA</button>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </div>
+		                        
+		                    </div>
+		                </form>   
+				
+				</div>
+			</div>
+		</div>
+			
+		</div>
     </div>
 
 
@@ -66,6 +136,9 @@
 $("#success-alert").fadeTo(1000, 500).slideUp(500, function(){
     $("#success-alert").slideUp(500);
 });
+function registrar(){	
+	$('#idModalRegistra').modal("show");
+}
 </script>
 
 
