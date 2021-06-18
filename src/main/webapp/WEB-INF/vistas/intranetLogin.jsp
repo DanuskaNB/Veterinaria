@@ -68,7 +68,7 @@
 					<h4><span class="glyphicon glyphicon-ok-sign"></span> Registrate!</h4>
 				</div>
 				<div class="modal-body" style="padding: 20px 10px;">
-						<form id="id_form_registra" accept-charset="UTF-8" action="registraProducto" class="form-horizontal"     method="post">
+						<form id="id_form_registra" accept-charset="UTF-8" action="registraUsuario" class="form-horizontal"     method="post">
 		                    <div class="panel-group" id="steps">
 		                        <!-- Step 1 -->
 		                        <div class="panel panel-default">
@@ -81,57 +81,49 @@
 		                                     <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_reg_nombre">Nombre</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="20"/>
+													<input class="form-control" id="id_reg_nombre" name="nombres" placeholder="Ingrese el Nombre" type="text" maxlength="20"/>
 		                                        </div>
 		                                    </div>
 		                                    
 		                                    <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_reg_serie">Apellidos</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_serie" name="serie" placeholder="Ingrese la serie" type="text" maxlength="8"/>
+													<input class="form-control" id="id_reg_serie" name="apellidos" placeholder="Ingrese la serie" type="text" maxlength="8"/>
 		                                        </div>
 		                                    </div>
 		                                    
 		                                    <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_reg_precio">DNI</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_precio" name="precio" placeholder="Ingrese el precio" type="text" maxlength="9"/>
+													<input class="form-control" id="id_reg_precio" name="dni" placeholder="Ingrese el precio" type="text" maxlength="9"/>
 		                                        </div>
 		                                    </div>
 		                                    
 		                                    <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_reg_stock">Correo</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_stock" name="stock" placeholder="Ingrese el stock" type="text" maxlength="9"/>
+													<input class="form-control" id="id_reg_stock" name="login" placeholder="Ingrese el stock" type="text" maxlength="9"/>
 		                                        </div>
 		                                    </div>
 		                                    
 		                                    <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_reg_stock">Contraseña</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_stock" name="stock" placeholder="Ingrese el stock" type="text" maxlength="9"/>
+													<input class="form-control" id="id_reg_stock" name="password" placeholder="Ingrese el stock" type="text" maxlength="9"/>
 		                                        </div>
 		                                    </div>
 		                                    
 		                                    <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_reg_stock">Dirección</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_stock" name="stock" placeholder="Ingrese el stock" type="text" maxlength="9"/>
+													<input class="form-control" id="id_reg_stock" name="direccion" placeholder="Ingrese el stock" type="text" maxlength="9"/>
 		                                        </div>
 		                                    </div>
-		                                   <!--  <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_marca">Marca</label>
-		                                        <div class="col-lg-5">
-													<select id="id_reg_marca" name="marca.idMarca" class='form-control'>
-							                            	<option value=" ">[Seleccione]</option>    
-							                         </select>
-		                                        </div>
-		                                    </div> -->
-		                                   
+		                               
 		                                    
 		                                    <div class="form-group">
 		                                        <div class="col-lg-9 col-lg-offset-3">
-		                                        	<button type="submit" class="btn btn-primary">REGISTRATE</button>
+		                                        	<button type="submit" id="id_registrar"  class="btn btn-primary">REGISTRATE</button>
 		                                        </div>
 		                                    </div>
 		                                </div>
@@ -157,12 +149,38 @@ $("#success-alert").fadeTo(1000, 500).slideUp(500, function(){
 function registrar(){	
 	$('#idModalRegistra').modal("show");
 }
+
+$("#id_registrar").click(function() {
+
+	var validator = $('#id_registrar').data('bootstrapValidator');
+	validator.validate();
+	
+
+	if (validator.isValid()) {
+		
+
+		$.ajax({
+			type : 'POST',
+			data : $("#id_form").serialize(),
+			url : 'registraUsuario',
+			success : function(data) {
+				mostrarMensaje(data.MENSAJE);
+				limpiar();
+				validator.resetForm();
+			},
+			error : function() {
+				mostrarMensaje(MSG_ERROR);
+			}
+		});
+	}
+
+});
 </script>
 
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#id_form').bootstrapValidator({
+    $('#id_form_registra').bootstrapValidator({
         message: 'This value is not valid',
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',

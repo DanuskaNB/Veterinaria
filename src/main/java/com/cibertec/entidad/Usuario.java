@@ -19,7 +19,7 @@ public class Usuario {
 	private int idUsuario;
 	private String nombres;
 	private String apellidos;
-	private String dni;
+	private int dni;
 	private String login;
 	private String password;
 
@@ -57,11 +57,13 @@ public class Usuario {
 		this.apellidos = apellidos;
 	}
 
-	public String getDni() {
+
+
+	public int getDni() {
 		return dni;
 	}
 
-	public void setDni(String dni) {
+	public void setDni(int dni) {
 		this.dni = dni;
 	}
 

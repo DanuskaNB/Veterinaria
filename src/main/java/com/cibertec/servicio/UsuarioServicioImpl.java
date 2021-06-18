@@ -53,4 +53,10 @@ public class UsuarioServicioImpl implements UsuarioServicio{
 		repositorio.deleteById(id);		
 	}
 
+	@Override
+	public Usuario insertaUsuario(Usuario obj) {
+		
+		return repositorio.save(obj);
+	}
+
 }

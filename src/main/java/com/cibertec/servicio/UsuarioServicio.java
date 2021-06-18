@@ -6,10 +6,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.cibertec.entidad.Opcion;
+import com.cibertec.entidad.Producto;
 import com.cibertec.entidad.Rol;
 import com.cibertec.entidad.Usuario;
 
 public interface UsuarioServicio {
+	public abstract Usuario insertaUsuario(Usuario obj);
 
 	public abstract Usuario login(Usuario bean);
 
