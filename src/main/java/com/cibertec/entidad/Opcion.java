@@ -15,9 +15,8 @@ public class Opcion {
 	private int idOpcion;
 	private String nombre;
 	private String ruta;
-	private byte estado;
-	private byte tipo;
-	
+	private String estado;
+	private int tipo;
 	public int getIdOpcion() {
 		return idOpcion;
 	}
@@ -36,20 +35,17 @@ public class Opcion {
 	public void setRuta(String ruta) {
 		this.ruta = ruta;
 	}
-	public byte getEstado() {
+	public String getEstado() {
 		return estado;
 	}
-	public void setEstado(byte estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	public byte getTipo() {
+	public int getTipo() {
 		return tipo;
 	}
-	public void setTipo(byte tipo) {
+	public void setTipo(int tipo) {
 		this.tipo = tipo;
 	}
-	
-	
-	
-	
+		
 }

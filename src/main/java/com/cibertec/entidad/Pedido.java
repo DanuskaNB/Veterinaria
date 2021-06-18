@@ -23,63 +23,47 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idPedido;
 
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idServicio")
+	private Servicio servicio;
+	
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idProducto")
+	private Producto producto;
+
+	
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idCliente")
+	private Cliente cliente;
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechaRegistro;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date fechaEntrega;
-
-	private String lugarEntrega;
-	private String estado;
-
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idcliente")
-	private Cliente cliente;
-
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idubigeo")
-	private Ubigeo ubigeo;
-
-	public int getidPedido() {
+	public int getIdPedido() {
 		return idPedido;
 	}
 
-	public void setiPedido(int idPedido) {
+	public void setIdPedido(int idPedido) {
 		this.idPedido = idPedido;
 	}
 
-	public Date getFechaRegistro() {
-		return fechaRegistro;
+	public Servicio getServicio() {
+		return servicio;
 	}
 
-	public void setFechaRegistro(Date fechaRegistro) {
-		this.fechaRegistro = fechaRegistro;
+	public void setServicio(Servicio servicio) {
+		this.servicio = servicio;
 	}
 
-	public Date getFechaEntrega() {
-		return fechaEntrega;
+	public Producto getProducto() {
+		return producto;
 	}
 
-	public void setFechaEntrega(Date fechaEntrega) {
-		this.fechaEntrega = fechaEntrega;
-	}
-
-	public String getLugarEntrega() {
-		return lugarEntrega;
-	}
-
-	public void setLugarEntrega(String lugarEntrega) {
-		this.lugarEntrega = lugarEntrega;
-	}
-
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setProducto(Producto producto) {
+		this.producto = producto;
 	}
 
 	public Cliente getCliente() {
@@ -90,14 +74,13 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 
-	public Ubigeo getUbigeo() {
-		return ubigeo;
+	public Date getFechaRegistro() {
+		return fechaRegistro;
 	}
 
-	public void setUbigeo(Ubigeo ubigeo) {
-		this.ubigeo = ubigeo;
+	public void setFechaRegistro(Date fechaRegistro) {
+		this.fechaRegistro = fechaRegistro;
 	}
-
 	
 
 }

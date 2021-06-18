@@ -4,15 +4,15 @@ package com.cibertec.entidad;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
@@ -27,8 +27,10 @@ public class Mascota {
 	@Column(name = "nombre")
 	private String nombre;
 	
-	@Column(name = "color")
-	private String color;
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idTipoMascota")
+	private TipoMascota tipomascota;
 	
 	@Column(name = "raza")
 	private String raza;
@@ -36,25 +38,19 @@ public class Mascota {
 	@Column(name = "descripcion")
 	private String descripcion;
 	
-
+	@Column(name="foto")
+	private byte[] foto;
 	
-	
-	
-	
-
-	public void setIdMascota(int idMascota) {
-		this.idMascota = idMascota;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 
 	public int getIdMascota() {
 		return idMascota;
 	}
 
-	public void setIdAlumno(int idMascota) {
+	public void setIdMascota(int idMascota) {
 		this.idMascota = idMascota;
 	}
 
@@ -66,12 +62,12 @@ public class Mascota {
 		this.nombre = nombre;
 	}
 
-	public String getColor() {
-		return color;
+	public TipoMascota getTipomascota() {
+		return tipomascota;
 	}
 
-	public void setColor(String color) {
-		this.color = color;
+	public void setTipomascota(TipoMascota tipomascota) {
+		this.tipomascota = tipomascota;
 	}
 
 	public String getRaza() {
@@ -81,17 +77,31 @@ public class Mascota {
 	public void setRaza(String raza) {
 		this.raza = raza;
 	}
-	
+
 	public String getDescripcion() {
 		return descripcion;
 	}
 
-	public void setDdescripcion(String descripcion) {
+	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
-	
 
+	public byte[] getFoto() {
+		return foto;
+	}
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 	
 	
 	

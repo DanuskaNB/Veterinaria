@@ -14,7 +14,7 @@ public class Rol {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idRol;
 	private String nombre;
-	private byte estado;
+	private int estado;
 
 	public int getIdRol() {
 		return idRol;
@@ -31,13 +31,13 @@ public class Rol {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	public byte getEstado() {
+	public int getEstado() {
 		return estado;
 	}
 
-	public void setEstado(byte estado) {
+	public void setEstado(int estado) {
 		this.estado = estado;
 	}
+
 
 }

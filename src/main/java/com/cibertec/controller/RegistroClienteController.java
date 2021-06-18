@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cibertec.entidad.Cliente;
 
-import com.cibertec.entidad.Ubigeo;
 import com.cibertec.servicio.ClienteServicio;
-import com.cibertec.servicio.UbigeoServicio;
+
 
 /**
  * @author Sergio Chavez
@@ -26,13 +25,13 @@ import com.cibertec.servicio.UbigeoServicio;
 
 @Controller
 public class RegistroClienteController {
-
+/*
 	@Autowired
 	UbigeoServicio servicioUbi1;
-
+*/
 	@Autowired
 	ClienteServicio servicio;
-
+/*
 	@ResponseBody
 	@RequestMapping("/listaDepartamentos")
 	public List<Ubigeo> listaDepartamentos() {
@@ -50,7 +49,7 @@ public class RegistroClienteController {
 	public List<Ubigeo> listaDistritos(String var_departamento, String var_provincia) {
 		return servicioUbi1.listaDistrito(var_departamento, var_provincia);
 	}
-
+*/
 	@RequestMapping("/registraCliente")
 	public String registraCliente(HttpServletRequest request, Cliente obj) {
 		HttpSession session = request.getSession(true);

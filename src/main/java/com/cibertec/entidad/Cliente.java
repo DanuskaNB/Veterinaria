@@ -3,17 +3,13 @@ package com.cibertec.entidad;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "cliente")
@@ -31,13 +27,6 @@ public class Cliente {
 
 	private String direccion;
 
-
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idUbigeo")
-	private Ubigeo ubigeo;
-	
-	
 
 	public int getIdCliente() {
 		return idCliente;
@@ -86,16 +75,6 @@ public class Cliente {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-
-	
-	public Ubigeo getUbigeo() {
-		return ubigeo;
-	}
-
-	public void setUbigeo(Ubigeo ubigeo) {
-		this.ubigeo = ubigeo;
-	}
-
 	
 	
 }

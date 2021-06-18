@@ -3,17 +3,12 @@ package com.cibertec.entidad;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "servicio")
@@ -29,6 +24,8 @@ public class Servicio {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechaRegistro;
+
+	private byte[] foto1;
 
 	public int getIdServicio() {
 		return idServicio;
@@ -78,13 +75,14 @@ public class Servicio {
 		this.fechaRegistro = fechaRegistro;
 	}
 
+	public byte[] getFoto1() {
+		return foto1;
+	}
 
+	public void setFoto1(byte[] foto1) {
+		this.foto1 = foto1;
+	}
 
-
-
-	
-
-	
-	
+		
 	
 }

@@ -18,10 +18,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cibertec.entidad.Cliente;
 import com.cibertec.entidad.Pedido;
-import com.cibertec.entidad.Ubigeo;
 import com.cibertec.servicio.ClienteServicio;
 import com.cibertec.servicio.PedidoServicio;
-import com.cibertec.servicio.UbigeoServicio;
+
 
 
 
@@ -34,8 +33,10 @@ import com.cibertec.servicio.UbigeoServicio;
 @Controller
 public class RegistroPedidoController {
 	
+	/*
 	@Autowired
 	private UbigeoServicio servicioUbi1;
+	*/
 	
 	@Autowired
 	private ClienteServicio clienteServicio ;
@@ -53,7 +54,7 @@ public class RegistroPedidoController {
 
 	
 
-	
+	/*
 	@ResponseBody
 	@RequestMapping("/registraPedido")
 	public Map<String, Object> registraPedido(Pedido obj){
@@ -74,6 +75,6 @@ public class RegistroPedidoController {
 					
 	};
 	
-
+*/
   
 }

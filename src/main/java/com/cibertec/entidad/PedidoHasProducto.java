@@ -14,7 +14,8 @@ public class PedidoHasProducto {
 	private PedidoHasProductoPK pedidoHasProductoPK;
 	private double precio;
 	private int cantidad;
-
+	private double monto;
+	
 	@ManyToOne
 	@JoinColumn(name = "idPedido", nullable = false, insertable = false, updatable = false)
 	private Pedido pedido;
@@ -61,6 +62,14 @@ public class PedidoHasProducto {
 
 	public void setProducto(Producto producto) {
 		this.producto = producto;
+	}
+
+	public double getMonto() {
+		return monto;
+	}
+
+	public void setMonto(double monto) {
+		this.monto = monto;
 	}
 
 }
