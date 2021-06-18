@@ -25,14 +25,14 @@
 			  		<input type="hidden" id="id_elimina" name="id">
 			  </form>	
 				
-		       <form accept-charset="UTF-8"  action="consultaCrudProducto" class="simple_form" id="defaultForm2"  method="post">
+		       <form accept-charset="UTF-8"  class="simple_form" id="defaultForm2"  method="post">
 
 					<div class="row" style="height: 70px">
 						<div class="col-md-2" >
-								<input class="form-control" id="id_nonbre_filtro"  name="filtro" placeholder="Ingrese el nombre" type="text" maxlength="30"/>
+								<input class="form-control" id="id_txt_filtro"  name="filtro" placeholder="Ingrese el nombre" type="text" maxlength="30"/>
 						</div>
 						<div class="col-md-2" >
-							<button type="submit" class="btn btn-primary" style="width: 150px">FILTRA</button>
+							<button type="submit" class="btn btn-primary"  id="id_btn_filtrar" style="width: 150px">FILTRA</button>
 						</div>
 						<div class="col-md-2">
 							<button type="button" data-toggle='modal' onclick="registrar();"  class='btn btn-success' id="validateBtnw2" style="width: 150px">REGISTRA</button>
@@ -48,7 +48,7 @@
 						</div>
 					</div>
 					
-					<div class="row" > 
+					<%-- <div class="row" > 
 						<div class="col-md-12">
 								<div class="content" >
 						
@@ -57,11 +57,15 @@
 											<tr>
 															<th>Id</th>
 															<th>Nombre</th>
+															<th>Descripcion</th>
+															<th>Detalles</th>
+															<th>Marca</th>
 															<th>Serie</th>
+															<th>Proveedor</th>
 															<th>Precio</th>
 															<th>Stock</th>
-															<th>Marca</th>
-																										
+															<th>Categoria</th>
+																																									
 															<th></th>
 															<th></th>
 											</tr>
@@ -72,13 +76,18 @@
 													<tr>
 														<td>${x.idProducto}</td>
 														<td>${x.nombre}</td>
-														<td>${x.serie}</td>
-														<td>${x.precio}</td>													
-														<td>${x.stock}</td>
+														<td>${x.descripcion}</td>
+														<td>${x.des_detalles}</td>
 														<td>${x.marca.nombre}</td>
+														<td>${x.serie}</td>
+														<td>${x.proveedor.descripcion}</td>
+														<td>${x.precio}</td>
+														<td>${x.stock}</td>													
+														<td>${x.categoria.nombre}</td>
+														
 														
 														<td>
-															<button type='button' data-toggle='modal' onclick="editar('${x.idProducto}','${x.nombre}','${x.serie}','${x.precio}','${x.stock}','${x.marca.idMarca}');" class='btn btn-success' style='background-color:hsla(233, 100%, 100%, 0);'>
+															<button type='button' data-toggle='modal' onclick="editar('${x.idProducto}','${x.nombre}','${x.descripcion}','${x.des_detalles}','${x.marca.idMarca}','${x.serie}','${x.proveedor.idProveedor}','${x.precio}','${x.stock}','${x.categoria.idCategoria}');" class='btn btn-success' style='background-color:hsla(233, 100%, 100%, 0);'>
 																<img src='images/edit.gif' id='id_update' width='auto' height='auto' />
 															</button>
 														</td>
@@ -94,7 +103,35 @@
 									
 								</div>	
 						</div>
+					</div> --%>
+		 		
+		 		<div class="row" > 
+						<div class="table-responsive">
+						
+									<table id="id_table" class="table table-bordered" >
+										<thead>
+											<tr>
+												<th style="width: 10%">ID</th>
+												<th style="width: 20%">Nombre</th>
+												<th style="width: 10%">Descripcion</th>
+												<th style="width: 10%">detalles</th>
+												<th style="width: 10%">Marca</th>
+												<th style="width: 20%">Serie</th>
+												<th style="width: 20%">Proveedor</th>
+												<th style="width: 15%">Precio</th>
+												<th style="width: 20%">Stock</th>
+												<th style="width: 20%">Categoria</th>
+												<th style="width: 10%">Actualiza </th>
+												<th style="width: 10%">Elimina </th>
+											</tr>
+										</thead>
+											<tbody>
+											</tbody>
+										</table>	
+									
+							
 					</div>
+		  </div>
 		 		</form>
 		  </div>
   
@@ -369,10 +406,61 @@ function editar(id,nombre,serie,precio,stock,idMarca){
 	$('#ac_marca').val(idMarca);
 	$('#idModalActualiza').modal("show");
 }
-
+/*
 $(document).ready(function() {
     $('#tablePaginacion').DataTable();
 } );
+*/
+
+		$("#id_btn_filtrar").click(function(){
+			var fil=$("#id_txt_filtro").val();
+			$.getJSON("consultaCrudProducto",{"filtro":fil}, function (lista){
+				agregarGrilla(lista);
+			});
+		});
+function agregarGrilla(lista){
+	 $('#id_table').DataTable().clear();
+	 $('#id_table').DataTable().destroy();
+	 $('#id_table').DataTable({
+			data: lista,
+			searching: false,
+			ordering: true,
+			processing: true,
+			pageLength: 5,
+			lengthChange: false,
+			columns:[
+				{data: "idproducto"},
+				{data: "nombre"},
+				{data: "descripcion"},
+				{data: "detalles"},
+				{data: "marca"},
+				{data: "serie"},
+				{data: "proveedor"},
+				{data: "precio"},
+				{data: "stock"},
+				{data: "categoria"},
+				{data: function(row, type, val, meta){
+					var salida='<button type="button" style="width: 90px" class="btn btn-info btn-sm" onclick="editar(\''+row.idproducto + '\',\'' + row.nombre +'\',\'' + row.descripcion  + '\',\'' + row.detalles + '\',\'' +  row.marca + '\',\'' +  row.serie + '\',\'' +  row.proveedor + '\',\'' + row.precio +'\',\'' + row.stock  + '\',\'' + row.categoria +'\')">Editar</button>';
+					console.log(row.nombre)
+					return salida;
+				},className:'text-center'},	
+				{data: function(row, type, val, meta){
+				    var salida='<button type="button" style="width: 90px" class="btn btn-danger btn-sm" onclick="eliminar(\'' + row.idproducto + '\')">Eliminar</button>';
+					return salida;
+				},className:'text-center'},													
+			]                                     
+	    });
+}
+
+function listarProductos(){
+	fetch('consultaCrudProducto?filtro=')
+	.then(response => response.json())
+	.then(data =>{
+		agregarGrilla(data)
+		console.log(data)
+	})
+}
+
 
 $('#id_form_registra').bootstrapValidator({
     message: 'This value is not valid',
