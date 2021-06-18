@@ -6,18 +6,18 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cibertec.entidad.Marca;
-import com.cibertec.repositorio.MarcaRepositorio;
+import com.cibertec.entidad.Proveedor;
+import com.cibertec.repositorio.ProveedorRepositorio;
 
 @Service
-public class MarcaServiceImpl implements MarcaService {
+public class ProveedorServiceImpl implements ProveedorService {
 
 	@Autowired
-	private MarcaRepositorio repository;
+	private ProveedorRepositorio repository;
 	
 
 	@Override
-	public List<Marca> listarTodos() {
+	public List<Proveedor> listarTodos() {
 		return repository.findAll();
 	}
 }

@@ -11,4 +11,8 @@ import com.cibertec.entidad.Marca;
 public interface MarcaRepositorio extends JpaRepository<Marca, Integer>{
 	@Query("select a from Marca a where a.nombre like :parametro")
 	public abstract List<Marca> listaPorNombre(@Param("parametro") String filtro);
+	
+	@Query("select distinct m.nombre from Marca m")
+	public abstract List<String> listaMarcas();
+	
 }

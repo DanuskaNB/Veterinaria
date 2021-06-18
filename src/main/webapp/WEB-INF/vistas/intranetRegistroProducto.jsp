@@ -149,7 +149,22 @@
 							                         </select>
 		                                        </div>
 		                                    </div>
-		                                   
+		                                    <div class="form-group">
+		                                        <label class="col-lg-3 control-label" for="id_reg_proveedor">Proveedor</label>
+		                                        <div class="col-lg-5">
+													<select id="id_reg_proveedor" name="proveedor.idProveedor" class='form-control'>
+							                            	<option value=" ">[Seleccione]</option>    
+							                         </select>
+		                                        </div>
+		                                    </div>
+		                                       <div class="form-group">
+		                                        <label class="col-lg-3 control-label" for="id_reg_categoria">Categoria</label>
+		                                        <div class="col-lg-5">
+													<select id="id_reg_categoria" name="categoria.idCategoria" class='form-control'>
+							                            	<option value=" ">[Seleccione]</option>    
+							                         </select>
+		                                        </div>
+		                                    </div>
 		                                    
 		                                    <div class="form-group">
 		                                        <div class="col-lg-9 col-lg-offset-3">
@@ -226,7 +241,22 @@
 							                         </select>
 		                                        </div>
 		                                    </div>			                                                                        
-		                                 
+		                                    <div class="form-group">
+		                                        <label class="col-lg-3 control-label" for="ac_proveedor">Proveedor</label>
+		                                        <div class="col-lg-5">
+													<select id="ac_proveedor" name="proveedor.idProveedor" class='form-control'>
+							                            	<option value=" ">[Seleccione]</option>      
+							                         </select>
+		                                        </div>
+		                                    </div>
+		                                    <div class="form-group">
+		                                        <label class="col-lg-3 control-label" for="ac_categoria">Categoria</label>
+		                                        <div class="col-lg-5">
+													<select id="ac_categoria" name="categoria.idCategoria" class='form-control'>
+							                            	<option value=" ">[Seleccione]</option>      
+							                         </select>
+		                                        </div>
+		                                    </div>	
 		                                    <div class="form-group">
 		                                        <div class="col-lg-9 col-lg-offset-3">
 		                                        	<button type="submit" class="btn btn-primary">ACTUALIZA</button>
@@ -278,6 +308,26 @@ $.getJSON("listaMarca", {}, function(data, q,t){
 	$.each(data, function(index,item){
 		$("#id_reg_marca").append("<option value="+item.idMarca +">"+ item.nombre +"</option>");
 		$("#ac_marca").append("<option value="+item.idMarca +">"+ item.nombre +"</option>");
+	});
+	
+});
+</script>
+<script type="text/javascript">
+
+$.getJSON("listaProveedor", {}, function(data, q,t){
+	$.each(data, function(index,item){
+		$("#id_reg_proveedor").append("<option value="+item.idProveedor +">"+ item.descripcion +"</option>");
+		$("#ac_proveedor").append("<option value="+item.idProveedor +">"+ item.descripcion +"</option>");
+	});
+	
+});
+</script>
+<script type="text/javascript">
+
+$.getJSON("listaCategoria", {}, function(data, q,t){
+	$.each(data, function(index,item){
+		$("#id_reg_categoria").append("<option value="+item.idCategoria +">"+ item.nombre +"</option>");
+		$("#ac_categoria").append("<option value="+item.idCategoria +">"+ item.nombre +"</option>");
 	});
 	
 });

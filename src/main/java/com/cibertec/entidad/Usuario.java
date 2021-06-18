@@ -27,7 +27,7 @@ public class Usuario {
 	private Date fechaRegistro;
 	
 	private String direccion;
-	private int estado;
+	
 
 	public String getNombreCompleto() {
 		return nombres.concat(" ").concat(apellidos);
@@ -97,16 +97,6 @@ public class Usuario {
 		this.direccion = direccion;
 	}
 
-	public int getEstado() {
-		return estado;
-	}
-
-	public void setEstado(int estado) {
-		this.estado = estado;
-	}
-
-
-	
 
 	
 }

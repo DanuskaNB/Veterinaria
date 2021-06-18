@@ -11,10 +11,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cibertec.entidad.Categoria;
 import com.cibertec.entidad.Marca;
 import com.cibertec.entidad.Producto;
+import com.cibertec.entidad.Proveedor;
+import com.cibertec.servicio.CategoriaService;
 import com.cibertec.servicio.MarcaService;
 import com.cibertec.servicio.ProductoService;
+import com.cibertec.servicio.ProveedorService;
 
 @Controller
 public class ProductoController {
@@ -25,17 +29,34 @@ public class ProductoController {
 	@Autowired
 	private ProductoService productoService;
 	
+	@Autowired
+	private ProveedorService proveedorService;
 	
+	@Autowired
+	private CategoriaService categoriaService;
 	
-	
-	@ResponseBody	
+	//No tocar, si funciona
 	@RequestMapping("/listaMarca")	
+	@ResponseBody
 	public List<Marca> listaMarca() {
 		return marcaService.listarTodos();
 	}
 	
+	@RequestMapping("/listaProveedor")	
+	@ResponseBody
+	public List<Proveedor> listaProveedor() {
+		return proveedorService.listarTodos();
+	}
+	
+	@RequestMapping("/listaCategoria")	
+	@ResponseBody
+	public List<Categoria> listaCategoria() {
+		return categoriaService.listarTodos();
+	}
+	
 	
 	@RequestMapping("/consultaCrudProducto")
+	@ResponseBody
 	public String consultaCrud(String filtro, HttpSession session) {
 		List<Producto> lista = productoService.listarPorNombre(filtro+"%");
 		session.setAttribute("productos", lista);
