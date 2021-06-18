@@ -19,7 +19,7 @@ public class Producto {
 	private int idProducto;
 	private String nombre;
 	private String descripcion;
-	private double des_detalles;
+	private String des_detalles;
 	
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -67,11 +67,11 @@ public class Producto {
 		this.descripcion = descripcion;
 	}
 
-	public double getDes_detalles() {
+	public String getDes_detalles() {
 		return des_detalles;
 	}
 
-	public void setDes_detalles(double des_detalles) {
+	public void setDes_detalles(String des_detalles) {
 		this.des_detalles = des_detalles;
 	}
 

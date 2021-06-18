@@ -57,8 +57,8 @@ public class ProductoController {
 	
 	@RequestMapping("/consultaCrudProducto")
 	@ResponseBody
-	public String consultaCrud(String filtro, HttpSession session) {
-		List<Producto> lista = productoService.listarPorNombre(filtro+"%");
+	public String consultaCrudProducto(String filtro, HttpSession session) {
+		List<Producto> lista = productoService.listarPorNombre(filtro.trim()+"%");
 		session.setAttribute("productos", lista);
 		return "intranetRegistroProducto";
 	}
