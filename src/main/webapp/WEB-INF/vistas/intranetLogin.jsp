@@ -100,7 +100,7 @@
 		                                    </div>
 		                                    
 		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_stock">Correo</label>
+		                                        <label class="col-lg-3 control-label" for="id_reg_stock">LOGIN</label>
 		                                        <div class="col-lg-5">
 													<input class="form-control" id="id_reg_stock" name="login" placeholder="Ingrese el stock" type="text" maxlength="9"/>
 		                                        </div>
