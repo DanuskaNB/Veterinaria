@@ -13,7 +13,7 @@ import com.cibertec.entidad.Producto;
 @Repository
 public interface ProductoRepositorio extends JpaRepository<Producto, Integer> {
 	
-	@Query("select p from Producto p where nombre like :parametro")
-	public abstract List<Producto> listaPorNombre(@Param("parametro") String filtro);
+	@Query("select p from Producto p where nombre like :fil")
+	public abstract List<Producto> listaPorNombre(@Param("fil") String filtro);
 	
 }

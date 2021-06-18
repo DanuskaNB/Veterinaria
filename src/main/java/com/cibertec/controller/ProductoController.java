@@ -54,7 +54,13 @@ public class ProductoController {
 		return categoriaService.listarTodos();
 	}
 	
+	@RequestMapping("/consultaCrudProducto")
+	@ResponseBody
+	public List<Producto> lista(String filtro) {
+		return productoService.listarPorNombre(filtro.trim() + "%");
+	}
 	
+	/*
 	@RequestMapping("/consultaCrudProducto")
 	@ResponseBody
 	public String consultaCrudProducto(String filtro, HttpSession session) {
@@ -62,7 +68,7 @@ public class ProductoController {
 		session.setAttribute("productos", lista);
 		return "intranetRegistroProducto";
 	}
-	
+	*/
 	@RequestMapping("/registraProducto")
 	public String registra(Producto obj, HttpSession session) {	
 		try {
