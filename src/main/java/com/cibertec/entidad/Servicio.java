@@ -1,5 +1,7 @@
 package com.cibertec.entidad;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -41,17 +43,13 @@ public class Servicio {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "fechaRegistro")
-	private String fechaRegistro;
+	private Date fechaRegistro;
 	
 	
 	@Lob
 	@Column(name = "foto1")
 	private byte[] foto1;
 
-	
-	
-	
-	
 
 	public int getIdServicio() {
 		return idServicio;
@@ -103,12 +101,12 @@ public class Servicio {
 	}
 
 
-	public String getFechaRegistro() {
+	public Date getFechaRegistro() {
 		return fechaRegistro;
 	}
 
 
-	public void setFechaRegistro(String fechaRegistro) {
+	public void setFechaRegistro(Date fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
 	}
 
@@ -123,9 +121,6 @@ public class Servicio {
 	}
 
 
-	
-	
-	
 	
 	
 }
