@@ -10,9 +10,7 @@ import com.cibertec.entidad.Servicio;
 
 public interface ServicioRepository extends JpaRepository<Servicio, Integer> {
 	
-	@Query("Select s from Servicio s where horario like :fil")
-	public abstract List<Servicio> listaAlumnoPorNombreLike(@Param("fil") String filtro);
-
-	
+	@Query("select s from Servicio s where nombre like :fil")
+	public abstract List<Servicio> listaPorNombre(@Param("fil") String filtro);
 	
 }

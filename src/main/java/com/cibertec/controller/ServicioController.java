@@ -1,6 +1,9 @@
 package com.cibertec.controller;
 
 import java.util.List;
+import java.util.Optional;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,24 +22,56 @@ public class ServicioController {
 	@ResponseBody
 	@RequestMapping("/consultaCrudServicio")
 	public List<Servicio> lista(String filtro) {
-		return service.listaServicioPorHorarioLike(filtro.trim() + "%");
+		return service.listarPorNombre(filtro.trim() + "%");
 	}
 
-	/*
-	 * @RequestMapping(value = "/verImagen/{id}", produces =
-	 * MediaType.IMAGE_JPEG_VALUE) public ResponseEntity<byte[]>
-	 * getImage(@PathVariable("id") int imageId) throws IOException {
-	 * 
-	 * Optional<Servicio> optServicio = service.obtienePorId(imageId);
-	 * 
-	 * byte[] imageContent = optServicio.get().getFoto1();
-	 * 
-	 * HttpHeaders headers = new HttpHeaders();
-	 * headers.setContentType(MediaType.IMAGE_JPEG);
-	 * 
-	 * return new ResponseEntity<byte[]>(imageContent, headers, HttpStatus.OK); }
-	 * 
-	 * 
-	 */
+	@RequestMapping("/registraServicio")
+	public String registra(Servicio obj, HttpSession session) {
+		try {
+			service.insertaServicio(obj);
+			session.setAttribute("MENSAJE", "Se registro correctamente");
+		} catch (Exception e) {
+			session.setAttribute("MENSAJE", "Existe ERROR");
+			e.printStackTrace();
+		}
+		return "redirect:salidaServicio";
+	}
+
+	@RequestMapping("/actualizaServicio")
+	public String actualiza(Servicio obj, HttpSession session) {
+		try {
+			service.insertaServicio(obj);
+			session.setAttribute("MENSAJE", "Se registro correctamente");
+		} catch (Exception e) {
+			session.setAttribute("MENSAJE", "Existe ERROR");
+			e.printStackTrace();
+		}
+		return "redirect:salidaServicio";
+	}
+
+	@RequestMapping("/eliminaCrudServicio")
+	public String elimina(int id, HttpSession session) {
+
+		try {
+			Optional<Servicio> obj = service.buscaPorId(id);
+			if (obj.isPresent()) {
+				service.eliminaServicio(id);
+				session.setAttribute("MENSAJE", "Se eliminó correctamente");
+			} else {
+				session.setAttribute("MENSAJE", "No existe el ID");
+			}
+		} catch (Exception e) {
+			session.setAttribute("MENSAJE", "Existe ERROR");
+			e.printStackTrace();
+		}
+		return "redirect:salidaServicio";
+	}
+
+	@RequestMapping("/salidaServicio")
+	public String listarTodaslosServicios(HttpSession session) {
+		List<Servicio> data = service.listarTodos();
+		session.setAttribute("servicio", data);
+		return "intranetRegistroServicio";
+	}
 
 }

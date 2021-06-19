@@ -13,35 +13,37 @@ import com.cibertec.repositorio.ServicioRepository;
 public class ServicioServiceImpl implements ServicioService {
 
 	@Autowired
-	private ServicioRepository repository;
+	private ServicioRepository repositorio;
 
 	@Override
-	public List<Servicio> listaServicio() {
-		return repository.findAll();
+	public List<Servicio> listarTodos() {
+		return repositorio.findAll();
 	}
 
 	@Override
-	public Servicio insertaActualizaServicio(Servicio obj) {
-		return repository.save(obj);
-	}
-
-	@Override
-	public Optional<Servicio> obtienePorId(int idServicio) {
-		// TODO Auto-generated method stub
-		return repository.findById(idServicio);
+	public Servicio insertaServicio(Servicio obj) {
+		return repositorio.save(obj);
 	}
 
 	@Override
 	public void eliminaServicio(int id) {
-		repository.deleteById(id);
+		repositorio.deleteById(id);
 
 	}
 
 	@Override
-	public List<Servicio> listaServicioPorHorarioLike(String filtro) {
-		return repository.listaAlumnoPorNombreLike(filtro);
+	public List<Servicio> listarPorNombre(String filtro) {
+		return repositorio.listaPorNombre(filtro);
 	}
 
-	
+	@Override
+	public Servicio insertaActualizaServicio(Servicio obj) {
+		return repositorio.save(obj);
+	}
+
+	@Override
+	public Optional<Servicio> buscaPorId(int id) {
+		return repositorio.findById(id);
+	}
 
 }
