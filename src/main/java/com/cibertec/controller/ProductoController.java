@@ -1,15 +1,24 @@
 package com.cibertec.controller;
 
 
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.cibertec.entidad.Categoria;
 import com.cibertec.entidad.Marca;
@@ -69,16 +78,56 @@ public class ProductoController {
 		return "intranetRegistroProducto";
 	}
 	*/
-	@RequestMapping("/registraProducto")
-	public String registra(Producto obj, HttpSession session) {	
+	
+	@ResponseBody
+	@PostMapping(value= "/registraProductoConFoto",consumes="multipart/form-data")
+	public Map<String, Object> registraProductoConFoto(@RequestParam(value = "nombre") String nombre,
+			@RequestParam(value = "descripcion") String descripcion, @RequestParam(value = "serie") String serie,
+			@RequestParam(value = "precio") Double precio, @RequestParam(value = "stock") Integer stock,
+			@RequestParam(value = "idMarca", required = false) Integer marca,
+			@RequestParam(value = "idProveedor", required = false) Integer proveedor,
+			@RequestParam(value = "idCategoria", required = false) Integer categoria,
+			@RequestParam(value = "foto") MultipartFile foto) {
+
+		Map<String, Object> salida = new HashMap<>();
+
 		try {
-			productoService.insertaProducto(obj);	
-			session.setAttribute("MENSAJE", "Se registro correctamente");	
-		} catch (Exception e) {
-			session.setAttribute("MENSAJE", "Existe ERROR");
+			Producto producto = new Producto();
+			
+			producto.setNombre(nombre);
+			producto.setDescripcion(descripcion);
+			producto.setSerie(serie);
+			producto.setPrecio(precio);
+			producto.setStock(stock);
+			producto.setIdMarca(marca);
+			producto.setIdProveedor(proveedor);
+			producto.setIdCategoria(categoria);
+			producto.setFoto1(foto.getBytes());
+			List<Producto> lstProducto=productoService.listarPorNombre(producto.getNombre());
+			if(CollectionUtils.isEmpty(lstProducto)) {
+				Producto objSalida=productoService.insertaActualizaProducto(producto);
+				if(objSalida==null) {
+					salida.put("mensaje","Error al insertar foto");
+				}
+				else {
+					salida.put("mensaje", "Registro Exitoso");
+					
+				}
+			}else {
+				salida.put("mensaje", "Producto ya existe"+ producto.getNombre());
+			}
+				
+			
+		
+		
+
+		} catch(Exception e) {
 			e.printStackTrace();
+			salida.put("MENSAJE", "El registro no pudo ser completado");
 		}
-		return "redirect:salidaProducto";
+
+		return salida;
+
 	}
 	
 	@RequestMapping("/actualizaProducto")
