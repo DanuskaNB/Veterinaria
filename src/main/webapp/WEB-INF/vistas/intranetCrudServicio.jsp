@@ -52,6 +52,7 @@
 												<th style="width: 12%">Descripcion</th>
 												<th style="width: 10%">Precio</th>
 												<th style="width: 10%">Horario</th>
+												<th style="width: 10%">Fecha Registro</th>
 												<th style="width: 8%">Actualiza</th>
 												<th style="width: 8%">Elimina </th>
 											</tr>
@@ -90,19 +91,19 @@
 			                                        <div class="col-lg-5">
 														<input class="form-control" id="id_reg_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="20"/>
 			                                        </div>
-			                                        <label class="col-lg-2 control-label" for="id_reg_dni" style="text-align: left;">Descripción</label>
+			                                        <label class="col-lg-2 control-label" for="id_reg_descripcion" style="text-align: left;">Descripción</label>
 			                                        <div class="col-lg-4">
-														<input class="form-control" id="id_reg_dni" name="dni" placeholder="Ingrese la descripción del servicio" type="text" maxlength="10"/>
+														<input class="form-control" id="id_reg_descripcion" name="descripcion" placeholder="Ingrese la descripción del servicio" type="text" maxlength="10"/>
 			                                        </div>
 			                                </div>
 		                                    <div class="form-group">
-		                                        <label class="col-lg-1 control-label" for="id_reg_correo" style="text-align: left;">Precio</label>
+		                                        <label class="col-lg-1 control-label" for="id_reg_precio" style="text-align: left;">Precio</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_correo" name="correo" placeholder="Ingrese el precio" type="text" />
+													<input class="form-control" id="id_reg_precio" name="precio" placeholder="Ingrese el precio" type="text" />
 		                                        </div>
-		                                        <label class="col-lg-2 control-label" for="id_reg_fecha" style="text-align: left;">Horario</label>
+		                                        <label class="col-lg-2 control-label" for="id_reg_horario" style="text-align: left;">Horario</label>
 		                                        <div class="col-lg-4">
-													<input class="form-control" id="id_reg_fecha" name="fechaNacimiento" placeholder="Ingrese turno de atención del servicio" type="date" />
+													<input class="form-control" id="id_reg_horario" name="horario" placeholder="Ingrese turno de atención del servicio" type="date" />
 		                                        </div>
 		                                    </div> 
 		                                    <div class="form-group">
@@ -154,7 +155,7 @@
 		                                    <div class="form-group">
 		                                        <label class="col-lg-2 control-label" for="id_ID" style="text-align: left;">ID</label>
 		                                        <div class="col-lg-2">
-		                                           <input class="form-control" id="id_ID" readonly="readonly" name="idAlumno" type="text" maxlength="8"/>
+		                                           <input class="form-control" id="id_ID" readonly="readonly" name="idServicio" type="text" maxlength="8"/>
 		                                        </div>
 		                                        <label class="col-lg-2 control-label" for="id_act_nombre" style="text-align: left;">Nombre</label>
 		                                        <div class="col-lg-6">
@@ -162,24 +163,24 @@
 		                                        </div>
 		                                    </div>
 		                                    <div class="form-group">
-		                                        <label class="col-lg-2 control-label" for="id_act_dni" style="text-align: left;">Descripción</label>
+		                                        <label class="col-lg-2 control-label" for="id_act_descripcion" style="text-align: left;">Descripción</label>
 		                                        <div class="col-lg-4">
-													<input class="form-control" id="id_act_dni" name="dni" placeholder="Ingrese la descripción del servicio" type="text" maxlength="10"/>
+													<input class="form-control" id="id_act_descripcion" name="descripcion" placeholder="Ingrese la descripción del servicio" type="text" maxlength="10"/>
 		                                        </div>
-		                                        <label class="col-lg-2 control-label" for="id_act_correo" style="text-align: left;">Precio</label>
+		                                        <label class="col-lg-2 control-label" for="id_act_precio" style="text-align: left;">Precio</label>
 		                                        <div class="col-lg-4">
-													<input class="form-control" id="id_act_correo" name="correo" placeholder="Ingrese el precio" type="text" />
+													<input class="form-control" id="id_act_precio" name="precio" placeholder="Ingrese el precio" type="text" />
 		                                        </div>
 		                                    </div>    
 		                                     <div class="form-group">
-		                                        <label class="col-lg-2 control-label" for="id_act_fecha" style="text-align: left;" >Horario</label>
+		                                        <label class="col-lg-2 control-label" for="id_act_horario" style="text-align: left;" >Horario</label>
 		                                        <div class="col-lg-4">
-													<input class="form-control" id="id_act_fecha" name="fechaNacimiento" placeholder="Ingrese turno de atención del servicio" type="date"/>
+													<input class="form-control" id="id_act_horario" name="horario" placeholder="Ingrese turno de atención del servicio" type="date"/>
 		                                        </div>
-		                                        <label class="col-lg-2 control-label" for="id_act_fecha">Foto</label>
-		                                        	 
-		                                        
+		                                    
 		                                    </div> 
+		                                    
+		                                    
 		                                    <div class="form-group">
 		                                    	 <label class="col-lg-1 control-label" for="id_act_foto" style="text-align: left;">Foto</label>
 		                                   		 <div class="col-lg-5">
@@ -306,7 +307,7 @@
 		$('#id_elimina').val(id);
 	    $.ajax({
 	          type: "POST",
-	          url: "eliminaCrudAlumno", 
+	          url: "eliminaCrudServicio", 
 	          data: {"id":id},
 	          success: function(data){
 	        	  agregarGrilla(data.lista);
@@ -318,12 +319,12 @@
 	     });
 	}
 	
-	function editar(id,nombre,dni,correo, fecha){	
+	function editar(id,nombre,descripcion,precio, horario){	
 		$('#id_ID').val(id);
 		$('#id_act_nombre').val(nombre);
-		$('#id_act_dni').val(dni);
-		$('#id_act_correo').val(correo);
-		$('#id_act_fecha').val(fecha);
+		$('#id_act_descripcion').val(descripcion);
+		$('#id_act_precio').val(precio);
+		$('#id_act_horario').val(horario);
 		
 		$('#id_act_saved').attr("src", "/verImagen/"+id);
 		$("#id_act_preview").attr("src", "/img/imagen_no_disponible.jpg");
@@ -333,9 +334,9 @@
 	
 	function limpiarFormulario(){	
 		$('#id_reg_nombre').val('');
-		$('#id_reg_dni').val('');
-		$('#id_reg_correo').val('');
-		$('#id_reg_fecha').val('');
+		$('#id_reg_descripcion').val('');
+		$('#id_reg_precio').val('');
+		$('#id_reg_horario').val('');
 	}
 	
 	$("#id_btn_registra").click(function(){
@@ -349,14 +350,14 @@
 	        
 	        formData.append("foto", file);
 	        formData.append("nombre", $("#id_reg_nombre").val());
-	        formData.append("dni", $("#id_reg_dni").val());
-	        formData.append("correo", $("#id_reg_correo").val());
-	        formData.append("fechaNacimiento", $("#id_reg_fecha").val());
+	        formData.append("descripcion", $("#id_reg_descripcion").val());
+	        formData.append("precio", $("#id_reg_precio").val());
+	        formData.append("horario", $("#id_reg_horario").val());
 
 	        
 	        $.ajax({
 	          type: "POST",
-	          url: "registraCrudAlumno", 
+	          url: "registraCrudServicio", 
 	          data: formData,
 	          enctype : 'multipart/form-data',
 	          contentType : false,
@@ -388,9 +389,9 @@
 		    formData.append("id", $("#id_ID").val());
 		    formData.append("foto", file);
 		    formData.append("nombre", $("#id_act_nombre").val());
-		    formData.append("dni", $("#id_act_dni").val());
-		    formData.append("correo", $("#id_act_correo").val());
-		    formData.append("fechaNacimiento", $("#id_act_fecha").val());
+		    formData.append("descripcion", $("#id_act_descripcion").val());
+		    formData.append("precio", $("#id_act_precio").val());
+		    formData.append("horario", $("#id_act_horario").val());
 		        
 	        $.ajax({
 	          type: "POST",
@@ -433,39 +434,29 @@
                     },
                 }
             },
-            "dni":{
-                selector: "#id_reg_dni",
+            "descripcion":{
+                selector: "#id_reg_descripcion",
                 validators:{
                     notEmpty: {
-                         message: 'El dni es obligatorio'
-                    },
-                    regexp: {
-                        regexp: /^[0-9]{8}$/,
-                        message: 'el dni es 8 dígitos'
+                         message: 'El descripcion es obligatorio'
                     },
                 }
             },
-            "correo":{
-                selector: "#id_reg_correo",
+            "precio":{
+                selector: "#id_reg_precio",
                 validators:{
                     notEmpty: {
-                         message: 'El correo es obligatorio'
+                         message: 'El precio es obligatorio'
                     },
-                    emailAddress: {
-                        message: 'El correo no es valido'
-                    }
                 }
             },
-            "fechaNacimiento":{
-            	 selector: "#id_reg_fecha",
+            "horario":{
+            	 selector: "#id_reg_horario",
                  validators:{
                 	 notEmpty: {
                          message: 'La fecha es obligatoria'
                     },
-                    date: {
-                        message: 'La fecha tiene formato DD/MM/YYYY',
-                        format: 'DD/MM/YYYY'
-                    },
+
                  }
             },
             "foto":{
@@ -508,39 +499,29 @@
                     },
                 }
             },
-            "dni":{
-                selector: "#id_act_dni",
+            "descripcion":{
+                selector: "#id_act_descripcion",
                 validators:{
                     notEmpty: {
-                         message: 'El dni es obligatorio'
+                         message: 'El descripcion es obligatorio'
                     },
-                    regexp: {
-                        regexp: /^[0-9]{8}$/,
-                        message: 'el dni es 8 dígitos'
-                    }
                 }
             },
-            "correo":{
-                selector: "#id_act_correo",
+            "precio":{
+                selector: "#id_act_precio",
                 validators:{
                     notEmpty: {
-                         message: 'El correo es obligatorio'
+                         message: 'El precio es obligatorio'
                     },
-                    emailAddress: {
-                        message: 'El correo no es valido'
-                    }
                 }
             },
-            "fechaNacimiento":{
-            	 selector: "#id_act_fecha",
+            "horario":{
+            	 selector: "#id_act_horario",
                  validators:{
                 	 notEmpty: {
-                         message: 'La fecha es obligatoria'
+                         message: 'El horario es obligatorio'
                     },
-                    date: {
-                        message: 'La fecha tiene formato DD/MM/YYYY',
-                        format: 'DD/MM/YYYY'
-                    },
+
                  }
             }
           

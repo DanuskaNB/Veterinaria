@@ -23,7 +23,7 @@ public class Servicio {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idservicio")
+	@Column(name = "idServicio")
 	private int idServicio;
 	
 	@Column(name = "nombre")
@@ -121,6 +121,11 @@ public class Servicio {
 	}
 
 
+	
+	
+	
+	
+	
 	
 	
 }
