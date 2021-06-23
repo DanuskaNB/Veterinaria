@@ -1,11 +1,13 @@
 package com.cibertec.entidad;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -19,29 +21,64 @@ public class Producto {
 	private int idProducto;
 	private String nombre;
 	private String descripcion;
-	private String des_detalles;
+
 	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idMarca")
+
+	@ManyToOne
+	@JoinColumn(name = "idMarca",insertable = false, updatable = false, nullable = false)
 	private Marca marca;
 	
 	private String serie;
 	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="idProveedor")
+
+	@ManyToOne
+	@JoinColumn(name="idProveedor",insertable = false, updatable = false, nullable = false)
 	private Proveedor proveedor;
 	
 	private double precio;
 	private int stock;
 	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="idCategoria")
-	private Categoria categoria;
 
+	@ManyToOne
+	@JoinColumn(name="idCategoria",insertable = false, updatable = false, nullable = false)
+	private Categoria categoria;
+	
+	@Lob
 	private byte[] foto1;
+
+	@Column(name = "idMarca")
+	private Integer idMarca;
+	
+	@Column(name = "idProveedor")
+	private Integer idProveedor;
+	
+	@Column(name = "idCategoria")
+	private Integer idCategoria;
+	
+	
+	public Integer getIdMarca() {
+		return idMarca;
+	}
+
+	public void setIdMarca(Integer idMarca) {
+		this.idMarca = idMarca;
+	}
+
+	public Integer getIdProveedor() {
+		return idProveedor;
+	}
+
+	public void setIdProveedor(Integer idProveedor) {
+		this.idProveedor = idProveedor;
+	}
+
+	public Integer getIdCategoria() {
+		return idCategoria;
+	}
+
+	public void setIdCategoria(Integer idCategoria) {
+		this.idCategoria = idCategoria;
+	}
 
 	public int getIdProducto() {
 		return idProducto;
@@ -65,14 +102,6 @@ public class Producto {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
-	}
-
-	public String getDes_detalles() {
-		return des_detalles;
-	}
-
-	public void setDes_detalles(String des_detalles) {
-		this.des_detalles = des_detalles;
 	}
 
 	public Marca getMarca() {
