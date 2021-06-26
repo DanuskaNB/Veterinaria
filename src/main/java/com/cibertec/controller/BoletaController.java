@@ -227,4 +227,14 @@ public class BoletaController {
 		return servicioService.listaServicio(filtro+"%", paginacion);
 	}
 	
+	//jobispo
+		@RequestMapping("/cargaServicios")
+		@ResponseBody
+		public List<Servicio> listaServicios(String filtro) {
+			int page = 0;
+			int size = 5;
+			Pageable paginacion = PageRequest.of(page, size);
+			return servicioService.listaServicio(filtro+"%", paginacion);
+		}
+	
 }
