@@ -8,7 +8,8 @@ import org.springframework.data.domain.Pageable;
 import com.cibertec.entidad.Producto;
 
 public interface ProductoService {
-
+	
+	
 	public abstract void eliminaProducto(int id);
 	public abstract List<Producto> listaProductoPorNombreLike(String filtro);
 	public abstract List<Producto> listarIdProducto(int idProducto);

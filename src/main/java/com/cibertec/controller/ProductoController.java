@@ -95,7 +95,7 @@ public class ProductoController {
 		Map<String, Object> salida = new HashMap<String, Object>();
 		try {
 			Optional<Producto> option = service.obtienePorId(obj.getIdproducto());
-			System.out.println("**************+-----------");
+			System.out.println("**************+------------------------------------------");
 			System.out.println( option.get().toString());
 			if (option.isPresent()) {
 				Producto objSalida = service.insertaActualizaProducto(obj);

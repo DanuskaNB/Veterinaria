@@ -79,22 +79,7 @@ public class ClienteController {
 
 	}
 	
-//	@RequestMapping("/logout")
-//	public String logout(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
-//		session.invalidate();
-//
-//		response.setHeader("Cache-control", "no-cache");
-//		response.setHeader("Expires", "0");
-//		response.setHeader("Pragma", "no-cache");
-//
-//		request.setAttribute("mensaje", "El usuario salió de sesión");
-//		return "login";
-//
-//	}
-	
-	
-
-///////////////////////ACTUALIZA CLIENTE
+	/* probando */
 
 	@RequestMapping("/actualizaCrudCliente")
 	@ResponseBody
@@ -120,7 +105,9 @@ public class ClienteController {
 		}
 		return salida;
 	}
-	
+
+////ELIMINA CLIENTE
+
 	@RequestMapping("/eliminaCliente")
 	@ResponseBody
 	public Map<String, Object> elimina(int id) {

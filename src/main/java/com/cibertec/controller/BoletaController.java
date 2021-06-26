@@ -42,28 +42,19 @@ public class BoletaController {
 	@Autowired
 	private ProductoSinFotoService productoService;
 	
-
+	//jobipso
 	@Autowired
 	private ServicioService servicioService;
 	
 	@Autowired
 	private BoletaService boletaService;
 	
-	@RequestMapping("/boleta")
-	@ResponseBody
-	public List<Boleta> listaBoleta2(int filtro2) {
-		return boletaService.listaBoletaId2(filtro2);
-	}
 	
-
+	
+	//Se almacenan los productos seleccionados
 	private List<Seleccion> seleccionados = new ArrayList<Seleccion>();
 	
 	
-	@RequestMapping("/carrito")
-	public String verBoleta() {
-		return "boleta";
-	}
-
 	@RequestMapping("/boletaCliente")
 	@ResponseBody
 	public List<Boleta> listaBoleta(int filtro1) {
@@ -77,21 +68,18 @@ public class BoletaController {
 	}
 	
 	
-	
-
-	@RequestMapping("/eliminaSeleccion")
+	@RequestMapping("/boleta")
 	@ResponseBody
-	public List<Seleccion> eliminar(int idProducto) {
-		for (Seleccion x : seleccionados) {
-			if (x.getIdProducto() == idProducto) {
-				seleccionados.remove(x);
-				break;
-			}
-		}
-		return seleccionados;
+	public List<Boleta> listaBoleta2(int filtro2) {
+		return boletaService.listaBoletaId2(filtro2);
 	}
+
+
 	
-	
+	@RequestMapping("/carrito")
+	public String verBoleta() {
+		return "boleta";
+	}
 
 	@RequestMapping("/agregarSeleccion")
 	@ResponseBody
@@ -106,7 +94,18 @@ public class BoletaController {
 		return seleccionados;
 	}
 	
-
+	@RequestMapping("/eliminaSeleccion")
+	@ResponseBody
+	public List<Seleccion> eliminar(int idProducto) {
+		for (Seleccion x : seleccionados) {
+			if (x.getIdProducto() == idProducto) {
+				seleccionados.remove(x);
+				break;
+			}
+		}
+		return seleccionados;
+	}
+	
 	
 	@RequestMapping("/registraBoleta")
 	@ResponseBody
@@ -153,7 +152,7 @@ public class BoletaController {
 		String salida = "-1";
 
 		if (objIns != null) {
-			salida = "Se genero la boleta con codigo N° : " + objIns.getIdboleta() + "<br><br>";
+			salida = "Se generó la boleta con código N° : " + objIns.getIdboleta() + "<br><br>";
 			salida += "Cliente: " + objIns.getCliente().getNombre() + "<br><br>";
 			salida += "<table class=\"table\"><tr><td>Producto</td><td>Precio</td><td>Cantidad</td><td>Subtotal</td></tr>";
 			double monto = 0;
@@ -174,7 +173,7 @@ public class BoletaController {
 		return objMensaje;
 	}
 	
-	@RequestMapping("/actualizarBoleta")
+	@RequestMapping("/actualizaBoleta")
 	@ResponseBody
 	public Map<String, Object> registraBoleta(Boleta obj) {
 		Map<String, Object> salida = new HashMap<String, Object>();
@@ -193,7 +192,10 @@ public class BoletaController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+//		}finally {
+//			List<Boleta> lista = boletaService.listaBoletas();
+//			salida.put("lista", lista);
+//		}
 		return salida;
 	}
 	
@@ -202,7 +204,7 @@ public class BoletaController {
 	@RequestMapping("/cargaCliente")
 	@ResponseBody
 	public List<Cliente> listaCliente(String filtro){
-		
+		//Los parametros de la paginacion
 		int page = 0;
 		int size = 5;
 		Pageable paginacion = PageRequest.of(page, size);
@@ -217,6 +219,8 @@ public class BoletaController {
 		Pageable paginacion = PageRequest.of(page, size);
 		return productoService.listaproducto(filtro+"%", paginacion);
 	}
+	
+	//jobispo
 	@RequestMapping("/cargaServicio")
 	@ResponseBody
 	public List<Servicio> listaServicio(String filtro) {

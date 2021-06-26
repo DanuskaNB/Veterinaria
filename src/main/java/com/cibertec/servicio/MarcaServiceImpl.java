@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import com.cibertec.entidad.Marca;
 import com.cibertec.repositorio.MarcaRepository;
 
-
-
 @Service
 public class MarcaServiceImpl implements MarcaService{
 

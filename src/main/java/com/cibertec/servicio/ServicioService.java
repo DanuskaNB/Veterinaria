@@ -15,6 +15,7 @@ public interface ServicioService {
 	public abstract void eliminaServicio(int id);
 	public abstract List<Servicio> listaServicioPorNombreLike(String filtro);
 	
+	//jobispo
 	public List<Servicio> listaServicio(String filtro, Pageable pegable);
 	
 }
