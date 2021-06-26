@@ -113,7 +113,7 @@
     	var email = $("#exampleInputEmail").val()
         var contra = $("#exampleInputPassword").val()
         console.log(email + contra)
-        console.log('hola')
+        console.log('Prueba')
     }
     ver();
     console.log('holii');
