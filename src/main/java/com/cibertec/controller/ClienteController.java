@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cibertec.entidad.Cliente;
+import com.cibertec.entidad.Mascota;
 import com.cibertec.servicio.ClienteService;
 import com.cibertec.util.Constantes;
 
@@ -121,5 +122,12 @@ public class ClienteController {
 		}
 		return salida;
 	}
+	
+	@RequestMapping("/listarMascotaCliente")
+	@ResponseBody
+	public List<Mascota> listaMascotaCliente(int cliente) {
+		return service.listaMascotasCliente(cliente);
+	}
+	
 
 }
