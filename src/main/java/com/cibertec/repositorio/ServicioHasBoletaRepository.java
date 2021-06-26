@@ -11,10 +11,7 @@ import com.cibertec.entidad.ServicioHasBoleta;
 
 public interface ServicioHasBoletaRepository extends JpaRepository<ServicioHasBoleta, Integer> {
 
-//	@Modifying
-//	@Query("update Servicio x set x.stock = x.stock - :can where x.idservicio = :pro")
-//	public abstract void actualizaStock(@Param("can")int cantidad, @Param("pro")int idServicio);
-	
+
 	
 	
 }

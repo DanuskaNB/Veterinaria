@@ -42,27 +42,6 @@ public class ServicioController {
 		return service.listaServicioPorNombreLike(filtro.trim() + "%");
 	}
 	
-	@RequestMapping("/eliminaCrudServicio")
-	@ResponseBody
-	public Map<String, Object> elimina(int id) {
-		Map<String, Object> salida = new HashMap<String, Object>();
-		Optional<Servicio> option = service.obtienePorId(id);
-		try {
-			if (option.isPresent()) {
-				service.eliminaServicio(id);
-				salida.put("mensaje", Constantes.MENSAJE_ELI_EXITOSO);
-			} else {
-				salida.put("mensaje", Constantes.MENSAJE_ELI_NO_EXISTE_ID);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			salida.put("mensaje", Constantes.MENSAJE_ELI_ERROR);
-		} finally {
-			List<Servicio> lista = service.listaServicio();
-			salida.put("lista", lista);
-		}
-		return salida;
-	}
 	@RequestMapping("/registraCrudServicio")
 	@ResponseBody
 	public Map<String, Object> registra(Servicio obj) {
@@ -90,7 +69,7 @@ public class ServicioController {
 		Map<String, Object> salida = new HashMap<String, Object>();
 		try {
 			
-			Optional<Servicio> option = service.obtienePorId(obj.getIdServicio());
+			Optional<Servicio> option = service.obtienePorId(obj.getIdservicio());
 			if ( option.isPresent() ) {
 				Servicio objSalida = service.insertaActualizaServicio(obj);
 				if (objSalida == null) {
@@ -110,6 +89,26 @@ public class ServicioController {
 		return salida;
 	}
 	
-	
+	@RequestMapping("/eliminaCrudServicio")
+	@ResponseBody
+	public Map<String, Object> elimina(int id) {
+		Map<String, Object> salida = new HashMap<String, Object>();
+		Optional<Servicio> option = service.obtienePorId(id);
+		try {
+			if (option.isPresent()) {
+				service.eliminaServicio(id);
+				salida.put("mensaje", Constantes.MENSAJE_ELI_EXITOSO);
+			} else {
+				salida.put("mensaje", Constantes.MENSAJE_ELI_NO_EXISTE_ID);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			salida.put("mensaje", Constantes.MENSAJE_ELI_ERROR);
+		} finally {
+			List<Servicio> lista = service.listaServicio();
+			salida.put("lista", lista);
+		}
+		return salida;
+	}
 	
 }
