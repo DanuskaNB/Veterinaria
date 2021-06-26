@@ -3,18 +3,12 @@ package com.cibertec.servicio;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.data.repository.query.Param;
-
 import com.cibertec.entidad.Boleta;
-import com.cibertec.entidad.Cliente;
-import com.cibertec.entidad.Mascota;
 import com.cibertec.entidad.ProductoHasBoleta;
 
 public interface BoletaService {
 	
 	public Boleta insertaBoleta( Boleta boleta );
-//	public abstract List<Boleta> listaBoletaCliente(int boleta);
-	
 	public abstract Optional<Boleta> obtienePorId(int idBoleta);
 	public abstract List<Boleta> listaBoletaId(int filtro1);
 	public abstract List<ProductoHasBoleta> listarProductos();

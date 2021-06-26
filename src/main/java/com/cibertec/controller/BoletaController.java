@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cibertec.entidad.Boleta;
 import com.cibertec.entidad.Cliente;
-import com.cibertec.entidad.Mascota;
 import com.cibertec.entidad.Mensaje;
-import com.cibertec.entidad.Producto;
 import com.cibertec.entidad.ProductoHasBoleta;
 import com.cibertec.entidad.ProductoHasBoletaPK;
 import com.cibertec.entidad.ProductoSinFoto;
@@ -28,7 +26,6 @@ import com.cibertec.entidad.ServicioHasBoletaPK;
 import com.cibertec.entidad.Usuario;
 import com.cibertec.servicio.BoletaService;
 import com.cibertec.servicio.ClienteService;
-import com.cibertec.servicio.ProductoService;
 import com.cibertec.servicio.ProductoSinFotoService;
 import com.cibertec.servicio.ServicioService;
 
