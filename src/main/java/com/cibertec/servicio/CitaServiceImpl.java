@@ -22,7 +22,7 @@ public class CitaServiceImpl implements CitaService{
 	@Override
 	public List<Cita> listaCitaId(int filtro1) {
 		// TODO Auto-generated method stub
-		return null;
+		return repository.listaCitaId(filtro1);
 	}
 
 	@Override

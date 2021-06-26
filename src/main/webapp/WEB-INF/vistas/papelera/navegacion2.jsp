@@ -9,6 +9,7 @@
 					<ul class="header-links pull-right">
 						<li><a href="registroMascota"><i class="fa fa-dollar"></i> Mi Mascota</a></li>
 						<li><a href="registroCliente"><i class="fa fa-user-o"></i>Mi Cuenta</a></li>
+					   	<li><a href="verCita"><i class="fa fa-user-o"></i>Citas</a></li>
 					</ul>
 				</div>
 			</div>

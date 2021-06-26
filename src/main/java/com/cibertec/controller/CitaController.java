@@ -24,6 +24,11 @@ public class CitaController {
 		return "admin/cita";
 	}
 	
+	@RequestMapping("/verCita")
+	public String verCita() {
+		return "verCitas";
+	}
+	
 	@RequestMapping("/registraCita")
 	@ResponseBody
 	public Map<String, Object> registra(Cita obj) {
@@ -57,7 +62,7 @@ public class CitaController {
 	@RequestMapping("/listarCitaCliente")
 	@ResponseBody
 	public List<Cita> listaCitaCliente(int filtro2) {
-		return service.listaCitaId(filtro2);
+		return service.listaCitaCliente(filtro2);
 	}
 	
 	
