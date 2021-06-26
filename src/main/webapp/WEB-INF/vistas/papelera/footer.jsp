@@ -1,10 +1,5 @@
 
-  <div class="botones-cuenta min">
-        <button id="cesta2" title="Cesta"><i class="fas fa-cart-plus"></i><span class="cesta-numero" id="cesta-numero">0</span></button>
-			       <a href="cuenta" class="footer-a" ><button id="salir" title="Mi Cuenta"><i class="fas fa-user-friends"></i> Cuenta</button></a>
-			       <a href="login" class="footer-a" ><button id="salir" title="Salir"><i class="fas fa-sign-out-alt"></i> Acceso</button></a>
-     </div>
-    
+  
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -19,14 +14,10 @@
 
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
 
-
-<script src="js/app.js"></script>
 <script>
 
-const cesta2 = document.querySelector('#cesta2');
-cesta2.addEventListener('click',()=>{
-	  location.href = "verBoleta"
-})
+
 </script>
