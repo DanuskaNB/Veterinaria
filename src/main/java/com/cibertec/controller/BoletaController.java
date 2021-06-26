@@ -42,7 +42,7 @@ public class BoletaController {
 	@Autowired
 	private ProductoSinFotoService productoService;
 	
-	//jobipso
+	
 	@Autowired
 	private ServicioService servicioService;
 	
@@ -51,7 +51,7 @@ public class BoletaController {
 	
 	
 	
-	//Se almacenan los productos seleccionados
+
 	private List<Seleccion> seleccionados = new ArrayList<Seleccion>();
 	
 	
