@@ -154,7 +154,7 @@ public class BoletaController {
 
 		if (objIns != null) {
 			salida = "Se genero la boleta con codigo N° : " + objIns.getIdboleta() + "<br><br>";
-			salida += "Cliente: " + objIns.getCliente().getNombres() + "<br><br>";
+			salida += "Cliente: " + objIns.getCliente().getNombre() + "<br><br>";
 			salida += "<table class=\"table\"><tr><td>Producto</td><td>Precio</td><td>Cantidad</td><td>Subtotal</td></tr>";
 			double monto = 0;
 			for (Seleccion x : seleccionados) {
