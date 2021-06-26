@@ -52,9 +52,9 @@
             </a>
           </li>
           <li>
-            <a href="incidencia">
+            <a href="cita">
               <i class="now-ui-icons education_atom"></i>
-              <p>Incidencias</p>
+              <p>Registrar Citas</p>
             </a>
           </li>
           <li>

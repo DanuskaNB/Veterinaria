@@ -9,6 +9,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.cibertec.entidad.Cliente;
+import com.cibertec.entidad.Mascota;
+
 
 @Repository
 public interface ClienteRepository  extends JpaRepository<Cliente, Integer>{
@@ -21,9 +23,12 @@ public interface ClienteRepository  extends JpaRepository<Cliente, Integer>{
 	
 	public abstract List<Cliente> findByidCliente(int idCliente);
 
-	//jobispo
+
 	@Query("Select x from Cliente x where nombre like :var_filtro or apellido like :var_filtro")
 	public abstract List<Cliente> listaCliente(@Param("var_filtro") String filtro, Pageable pageable);
+	
+	@Query("select e from Mascota e where idcliente = :var_cli")
+	public abstract List<Mascota> listaMascotaCliente(@Param("var_cli")int cliente);
 
 
 }

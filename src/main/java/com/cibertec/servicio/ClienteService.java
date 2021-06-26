@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.springframework.data.domain.Pageable;
 
 import com.cibertec.entidad.Cliente;
+import com.cibertec.entidad.Mascota;
 
 
 public interface ClienteService {
@@ -21,8 +22,9 @@ public interface ClienteService {
 	public abstract Cliente insertaActualizaCliente(Cliente obj);
 	public abstract List<Cliente> listaPoridCliente(int idCliente);
 
-	//jobispo
+
 	public abstract List<Cliente> listaCliente(String filtro , Pageable pageable) ;
+	public abstract List<Mascota> listaMascotasCliente(int cliente) ;
 
 	
 }

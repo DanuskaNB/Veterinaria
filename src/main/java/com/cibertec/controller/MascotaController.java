@@ -101,4 +101,12 @@ public class MascotaController {
 		return salida;
 	}
 	
+	@RequestMapping("/listarMascotas")
+	@ResponseBody
+	public List<Mascota> listaMascotas() {
+		return service.listaMascota();
+	}
+	
+
+	
 }

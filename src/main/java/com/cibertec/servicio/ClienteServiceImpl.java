@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.cibertec.entidad.Cliente;
+import com.cibertec.entidad.Mascota;
 import com.cibertec.repositorio.ClienteRepository;
 
 import java.util.List;
@@ -61,6 +62,13 @@ public class ClienteServiceImpl implements ClienteService{
 	@Override
 	public List<Cliente> listaCliente(String filtro, Pageable pageable) {
 		return repository.listaCliente(filtro, pageable);
+	}
+
+
+	@Override
+	public List<Mascota> listaMascotasCliente(int cliente) {
+		// TODO Auto-generated method stub
+		return repository.listaMascotaCliente(cliente);
 	}
 
 
