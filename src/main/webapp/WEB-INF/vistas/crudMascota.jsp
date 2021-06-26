@@ -1,23 +1,22 @@
-<jsp:include page="reusable/header.jsp"/>
-<body style="background-color: #F2F2F2;">
-<jsp:include page="reusable/navegacion.jsp"/>
+<jsp:include page="papelera/header.jsp"/>
+<body style="background-color: #706fd3;">
+<jsp:include page="papelera/navegacion.jsp"/>
+
 <div class="container">
 
- <h3>Mi Mascota | Entre Patas</h3>
+ <h3>Mi Mascota</h3>
     
 					<div class="row my-2" >
-							<div class="col-md-5 my-2" >
+							<div class="col-md-4 my-2" >
 									<input class="form-control" id="id_txt_filtro"  name="filtro" placeholder="Ingrese el nombre" type="text" maxlength="30"/>
 									<input class="form-control" id="id_txt_filtro1"  name="filtro1" type="hidden" value = "${sessionScope.objUsuario.idCliente}"/>
 							</div>
 							<div class="m-2" >
 								<button type="button" class="btn btn-primary" id="id_btn_filtrar">FILTRAR</button>
-							</div>
-							<div class="m-2"  >
-							<button type="button" class="btn btn-primary levantarModal" data-bs-toggle="modal"  data-bs-whatever="@mdo">Registrar</button>
+								<button type="button" class="btn btn-primary levantarModal" data-bs-toggle="modal"  data-bs-whatever="@mdo">Registrar</button>
 							</div>
 					</div>
-					
+					<br>
 					
 						<div class="table-responsive">
 									<table id="id_table" class="table table-bordered" >
@@ -25,10 +24,9 @@
 											<tr>
 												<th >ID</th>
 												<th >Nombre</th>
-												<th >Especie</th>
-												<th >Raza</th>
+												
 												<th >Sexo</th>
-												<th >Color</th>
+												<th >Caracteristica</th>
 												<th>Fec.Nac.</th>
 												<th>Actualiza </th>
 												<th>Elimina </th>
@@ -61,18 +59,7 @@
 		                                        <label class="col-form-label" for="id_reg_nombre">Nombre</label>
 													<input class="form-control" id="id_reg_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="20"/>
 		                                    </div>
-		                                    <div class="form-group">
-		                                        <label class="col-form-label" for="id_reg_especie">Especie</label>
-													<select id="id_reg_especie" class='form-control'>
-							                            	<option value=" ">[Seleccione Especie]</option>    
-							                         </select>
-		                                    </div>
-		                                    <div class="form-group">
-		                                        <label class="col-form-label" for="id_reg_raza">Raza</label>
-													<select id="id_reg_raza" name="especie" class='form-control'>
-							                            	<option value=" ">[Seleccione Raza]</option>    
-							                         </select>
-		                                    </div>
+		                                  
 		                                    <div class="form-group">
 		                                        <label class="col-form-label" for="id_reg_sexo">Sexo</label>
 													<select id="id_reg_sexo" name="sexo" class='form-control'>
@@ -80,7 +67,7 @@
 							                         </select>
 		                                    </div>
 		                                    <div class="form-group">
-		                                        <label class="col-form-label" for="id_reg_color">Color</label>
+		                                        <label class="col-form-label" for="id_reg_color">Caracteristica</label>
 													<input class="form-control" id="id_reg_color" name="color" placeholder="Ingrese el color" type="text" />
 		                                    </div>
 		                                    
@@ -123,18 +110,7 @@
 		                                        <label class="col-form-label" for="id_act_nombre">Nombre</label>
 													<input class="form-control" id="id_act_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="20"/>
 		                                    </div>
-		                                    <div class="form-group">
-		                                        <label class="col-form-label" for="id_act_especie">Especie</label>
-													<select id="id_act_especie" class='form-control'>
-							                            	<option value=" ">[Seleccione Especie]</option>    
-							                         </select>
-		                                    </div>
-		                                    <div class="form-group">
-		                                        <label class="col-form-label" for="id_act_raza">Raza</label>
-													<select id="id_act_raza" name="especie.idespecie" class='form-control'>
-							                            	<option value=" ">[Seleccione Raza]</option>    
-							                         </select>
-		                                    </div>
+		                                  
 		                                    <div class="form-group">
 		                                        <label class="col-form-label" for="id_act_sexo">sexo</label>
 													<select id="id_act_sexo" name="sexo" class='form-control'>
@@ -142,7 +118,7 @@
 							                         </select>
 		                                    </div>
 		                                    <div class="form-group">
-		                                        <label class="col-form-label" for="id_act_color">Color</label>
+		                                        <label class="col-form-label" for="id_act_color">Caracteristica</label>
 													<input class="form-control" id="id_act_color" name="color" placeholder="Ingrese el color" type="text" />
 		                                    </div>
 		                                    <div class="form-group">
@@ -186,45 +162,17 @@
 				</div>
 
 </div>
-<jsp:include page="reusable/footer.jsp"/>
+<jsp:include page="papelera/footer.jsp"/>
 </body>
 
 <script type="text/javascript">	
 <!-- Agregar aquí -->
-$.getJSON("listaEspecies",{}, function(data){
-	$.each(data, function(i, item){
-		$("#id_reg_especie").val(" ");
-		$("#id_act_especie").val(" ");
-		$("#id_reg_especie").append("<option value='"+ item +"'>"+ item+"</option>");
-		$("#id_act_especie").append("<option value='"+ item +"'>"+ item+"</option>");
-	});
-});
 
 <!-- REGISTRAR, LISTAR COMBO -->
-$("#id_reg_especie").change(function(){
-	var var_raz = $("#id_reg_especie").val();
-	$("#id_reg_raza").empty();
-	$("#id_reg_raza").append("<option value=' '>[Seleccione Raza]</option>");
-	
-	$.getJSON("listaRazas",{"especie":var_raz}, function(data){
-		$.each(data, function(i, item){
-			$("#id_reg_raza").append("<option value='"+ item.idespecie +"'>"+ item.raza+"</option>");
-		});
-	});
-});
+
 
 <!-- ACTUALIZAR, LISTAR COMBO -->
-$("#id_act_especie").change(function(){
-	var var_raz = $("#id_act_especie").val();
-	$("#id_act_raza").empty();
-	$("#id_act_raza").append("<option value=' '>[Seleccione Raza]</option>");
-	
-	$.getJSON("listaRazas",{"especie":var_raz}, function(data){
-		$.each(data, function(i, item){
-			$("#id_act_raza").append("<option value='"+ item.idespecie +"'>"+ item.raza+"</option>");
-		});
-	});
-});
+
 
 $.getJSON("listarSexo",{}, function(data){
 	$.each(data, function(i, item){
@@ -266,13 +214,12 @@ $("#id_btn_filtrar").click(function(){
 				columns:[
 					{data: "idmascota"},
 					{data: "nombre"},
-					{data: "especie.nombre"},
-					{data: "especie.raza"},
+				
 					{data: "sexo.nombre"},
 					{data: "color"},
 					{data: "strFechaFormateada"},
 					{data: function(row, type, val, meta){
-						var salida='<button type="button" style="width: 90px" class="btn btn-info btn-sm" onclick="editar(\''+row.idmascota + '\',\'' + row.nombre +'\',\'' + row.especie.nombre  + '\',\'' + row.especie.raza + '\',\'' +  row.sexo.idsexo + '\',\'' +  row.color + '\',\'' +  row.strFechaFormateada + '\',\'' +  row.idcliente + '\')">Editar</button>';
+						var salida='<button type="button" style="width: 90px" class="btn btn-info btn-sm" onclick="editar(\''+row.idmascota + '\',\'' + row.nombre +'\',\''  +  row.sexo.idsexo + '\',\'' +  row.color + '\',\'' +  row.strFechaFormateada + '\',\'' +  row.idcliente + '\')">Editar</button>';
 						return salida;
 					},className:'text-center'},	
 					{data: function(row, type, val, meta){
@@ -293,55 +240,28 @@ $("#id_btn_filtrar").click(function(){
 	}
 	
 	
-	function eliminar(id){	
+	function eliminar(id){
 		
-		Swal.fire({
-			  title: 'Eliminar Registro?',
-			  text: "Este registro no se podra recuperar!",
-			  icon: 'warning',
-			  showCancelButton: true,
-			  confirmButtonColor: '#3085d6',
-			  cancelButtonColor: '#d33',
-			  confirmButtonText: 'Si, estoy seguro'
-			}).then((result) => {
-			  if (result.isConfirmed) {
-				  fetch('eliminaCrudMascota?id='+id)
-					.then(response => response.json())
-					.then(data=>{
-						  Swal.fire(
-							      'Eliminado!',
-							      'Registro eliminado Correctamente',
-							      'success'
-							    )
-						listarMascotas()
-					})
-			  }
-			})
-		
-		
+		alertify.confirm('Eliminar', 'Si, Eliminar', function(){ fetch('eliminaCrudMascota?id='+id)
+			.then(response => response.json())
+			.then(data=>{
+				listarMascotas()
+			}), alertify.error('Eliminado') }
+        , function(){ alertify.error('Cancelado')});
 	}
+
+
 	
 	function accionEliminar(id){	
 		
 	
 	}
 	
-	function editar(id,nombre,especie,raza,idsexo,color,fechaNacimiento,idcliente){	
+	function editar(id,nombre,idsexo,color,fechaNacimiento,idcliente){	
 		$('#id_ID').val(id);
 		$('#id_act_nombre').val(nombre);
-		$("#id_act_raza").empty();
-		$("#id_act_raza").append("<option value=' ' >[Seleccione Raza]</option>");
-		$('#id_act_especie').val(especie);
 		
-	    $.getJSON("listaRazas",{"especie":especie},function(data){
-	        $.each(data,function(index,obj){
-	            if(obj.raza ==  raza){
-	                  $("#id_act_raza").append("<option selected value='" + obj.idespecie+ "'>"+obj.raza+"</option>");
-	            }else{
-	                 $("#id_act_raza").append("<option value='" + obj.idespecie+ "'>"+obj.raza+"</option>");
-	            }
-	        });
-	        });
+		
         	
 		$('#id_act_sexo').val(idsexo);
 		$('#id_act_color').val(color);
@@ -378,19 +298,13 @@ $("#id_btn_filtrar").click(function(){
 	        	  listarMascotas()
 	        	  console.log(data.lista)
 	        	  $('#id_div_modal_registra').modal("hide");
-	        	  Swal.fire(
-					      'Añadido',
-					      'Registrado Correctamente',
-					      'success'
-					    )
+	        	  alertify.success('Registro Añadido.'); 
+
 	        	  limpiarFormulario();
 	          },
 	          error: function(){
-	        	  Swal.fire(
-					      'Error!',
-					      'No se pudo Registrar',
-					      'danger'
-					    )
+	        	  alertify.error('Error en el registro.'); 
+
 	          }
 	        });
 	        
@@ -410,18 +324,12 @@ $("#id_btn_filtrar").click(function(){
 	          success: function(data){
 	        	  listarMascotas()
 	        	  $('#id_div_modal_actualiza').modal("hide");
-	        	  Swal.fire(
-					      'Añadido',
-					      'Actualizado Correctamente',
-					      'success'
-					    )
+	        	  alertify.success('Actualizado Correctamente.'); 
+
 	          },
 	          error: function(){
-	        	  Swal.fire(
-					      'Error!',
-					      'No se pudo Actualizar',
-					      'danger'
-					    )
+	        	  alertify.error('Error al actualizar'); 
+
 	          }
 	        });
 	        

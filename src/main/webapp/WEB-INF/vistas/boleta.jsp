@@ -5,23 +5,45 @@
 <meta name="viewport"content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <script type="text/javascript" src="js/jquery.min.js"></script>
  <link rel="shortcut icon" href="img/icono.jpg">
- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+ <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+		<!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+
+		<!-- Slick -->
+		<link type="text/css" rel="stylesheet" href="css/slick.css"/>
+		<link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
+
+		<!-- nouislider -->
+		<link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/>
+
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
 <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/bootstrapValidator.js"></script>
-<script type="text/javascript" src="js/sweetalert.min.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+	
 <link rel="stylesheet" href="css/bootstrap.css" />
 <link rel="stylesheet" href="css/dataTables.bootstrap.min.css" />
 <link rel="stylesheet" href="css/bootstrapValidator.css" />
- <link rel="stylesheet" href="css/estilosTienda.css">
-    <link rel="stylesheet" href="css/cuenta.css">
-<title>BOLETA DE VENTAS - ENTRE PATAS</title>
+
+<title>BOLETA SCOBBY</title>
 </head>
-<body style="background-color: #F2F2F2;">
-<jsp:include page="reusable/navegacion.jsp"/>
+<body style="background-color: #474787;">
+<jsp:include page="papelera/navegacion2.jsp"/>
 <div class="container">
-	<h3>BOLETA DE VENTA</h3>	
+	<h3 class="text-white" style="color:#fff">ESCOJE TU PRODUCTO</h3>	
 	
 	<form id="id_form" accept-charset="UTF-8" action="boleta" class="form-horizontal" method="post">
 			<div class="panel-group" id="steps">
@@ -83,49 +105,7 @@
 						</div>
 				</div>
 				<!-- jobispo -->
-				<div class="panel panel-default">
-					<div class="panel-heading">Selección de Servicios</div>
-						<div class="panel-body">
-							<div class="form-group  col-md-4" >
-								<div class="col-lg-2">
-									<button type="button" id="id_btnServicio" data-toggle='modal' class='btn btn-success' style="width: 170px">BUSCA SERVICIO</button>
-									<input type="hidden" name="idservicio" id="id_servicio_id" class="form-control" value="-1"/>									
-								</div>
-							</div>
-							<div class="form-group  col-md-4">
-								<label class="col-lg-3 control-label">Nombre</label>
-								<div class="col-lg-8">
-									<input type="text" name="nombreServicio" id="id_servicio_nombre" class="form-control" readonly="readonly"/>
-								</div>
-							</div>
-							<div class="form-group  col-md-4">
-								<label class="col-lg-3 control-label">Precio</label>
-								<div class="col-lg-8">
-									<input type="text" name="precio" id="id_servicio_precio" class="form-control" readonly="readonly"/>
-								</div>
-							</div>
-							<div class="form-group  col-md-4">
-								<label class="col-lg-3 control-label">Horario</label>
-								<div class="col-lg-8">
-									<input type="text" name="horario" id="id_servicio_horario" class="form-control" readonly="readonly"/>
-								</div>
-							</div>
-							<div class="form-group  col-md-4">
-								<label class="col-lg-3 control-label">Fecha</label>
-								<div class="col-lg-8">
-									<input type="text" name="fecha" id="id_servicio_fecha" class="form-control" readonly="readonly"/>
-								</div>
-							</div>
-							<!-- 							
-							<div class="form-group  col-md-4">
-								<label class="col-lg-3 control-label" for="id_reg_estado">Fecha</label>
-								<div class="col-lg-8">
-									<input type="text" name="cantidad" id="id_producto_cantidad"  class="form-control"	placeholder="Ingrese la cantidad" onkeypress="return validarSoloNumerosEnteros(event);"  />
-								</div>
-							</div>
-							 -->
-						</div>
-				</div>
+				
 			</div>
 			
 			
@@ -135,8 +115,7 @@
 							<div class="form-group">
 								<div class="col-lg-9 col-lg-offset-3">
 									<button type="button" id="id_btnAgregar" class="btn btn-primary" style="width: 170px">AGREGA PRODUCTO</button>
-									<button type="button" id="id_btnAgregar_servicio" class="btn btn-success" style="width: 170px">AGREGA SERVICIO</button>
-									<button type="button" id="id_btnRegistrar"  class="btn btn-secondary" style="width: 170px">COMPRAR</button>
+									<button type="button" id="id_btnRegistrar"  class="btn btn-warning" style="width: 170px">COMPRAR</button>
 								</div>
 							</div>
 							<div class="form-group">
@@ -320,22 +299,11 @@
 		
 </form>
 </div>
-  <div class="botones-cuenta min">
-        <button id="cesta2" title="Cesta"><i class="fas fa-cart-plus"></i><span class="cesta-numero" id="cesta-numero">0</span></button>
-			       <a href="cuenta" class="footer-a" ><button id="salir" title="Mi Cuenta"><i class="fas fa-user-friends"></i> Cuenta</button></a>
-			       <a href="login" class="footer-a" ><button id="salir" title="Salir"><i class="fas fa-sign-out-alt"></i> Acceso</button></a>
-     </div>
-    
+ 
+
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
 
-<script src="js/app.js"></script>
-<script>
-
-const cesta2 = document.querySelector('#cesta2');
-cesta2.addEventListener('click',()=>{
-	  location.href = "verBoleta"
-})
-</script>
 <script type="text/javascript">
 
 	$(document).ready(function() {
@@ -443,11 +411,11 @@ cesta2.addEventListener('click',()=>{
 						});
 						
 					}else
-						swal("Error al agregar la selección del producto","","error");
+						alertify.error('Error en el registro.'); 
 						return false;
 					},
 				error: function (jqXhr) { 
-					swal("Error en la conexión","","error");
+					alertify.error('Error de red.'); 
 				}
 		   });	
 			   
@@ -508,12 +476,12 @@ cesta2.addEventListener('click',()=>{
 						});
 						
 					}else
-						swal("Error al agregar la selección del producto","","error");
+						alertify.error('Error al seleccionar.'); 
 						return false;
 					},
 				error: function (jqXhr) { 
 					 console.log('error mrda');
-					swal("Error en la conexión","","error");
+					 alertify.error('Error de red.'); 
 				}
 		   });	
 			   
@@ -569,12 +537,12 @@ cesta2.addEventListener('click',()=>{
 						$("#id_cliente_nombre").val("");
 						$("#id_cliente_apellido").val("");
 					}else
-						swal("Error al agregar la Boleta","","error");
+						alertify.success('Error al agregar.'); 
+						
 						return false;
 					},
 				error: function (jqXhr) {
-					console.log( 'error mrda' ); 
-					swal("Error en la conexión","","error");
+					alertify.error('Error de red.'); 
 				}
 		   });	
 			   

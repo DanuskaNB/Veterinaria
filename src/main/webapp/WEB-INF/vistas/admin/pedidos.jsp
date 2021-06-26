@@ -2,17 +2,13 @@
    <jsp:include page="../papelera/opciones.jsp"/>
 		
 <div class="col-md-10" style="margin-left:20%;" >                       
-<h4>Servicios</h4>
+<h4>PEDIDOS DE CLIENTES</h4>
 					<div class="row my-2" >
-						<div class="col-md-5 my-2" >
-								<input class="form-control" id="id_txt_filtro"  name="filtro" placeholder="Ingrese el nombre" type="text" maxlength="30"/>
-						</div>
+						
 						<div class="m-2" >
 							<button type="button" class="btn btn-primary" id="id_btn_filtrar" style="width: 150px">FILTRAR</button>
 						</div>
-						<div class="m-2">
-						<button type="button" class="btn btn-primary levantarRegistro" data-bs-toggle="modal">Registrar</button>
-						</div>
+						
 					</div>
 					
 					<div class="row" > 
@@ -22,11 +18,11 @@
 										<thead>
 											<tr>
 												<th style="width: 10%">ID</th>
-												<th style="width: 20%">Nombre</th>
-												<th style="width: 10%">Descripcion</th>
-												<th style="width: 15%">Precio</th>
-										
 												<th style="width: 20%">Fecha</th>
+												<th style="width: 10%">Estado</th>
+												<th style="width: 10%">Cliente</th>
+										        <th style="width: 10%">Correo</th>
+												<th style="width: 20%">Producto</th>
 												<th style="width: 10%">Actualiza </th>
 												<th style="width: 10%">Elimina </th>
 											</tr>
@@ -40,53 +36,6 @@
 		  </div>
   
   
-  	 <div class="modal fade " id="modal_registra" >
-			<div class="modal-dialog">
-		
-				<!-- Modal content-->
-				<div class="modal-content">
-				<div class="modal-header">
-					   <h5 class="modal-title" id="exampleModalLabel">Ingrese Datos</h5>
-                       <button type="button" class="btn-close btn btn-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
-				</div>
-				<div class="modal-body">
-						<form id="id_form_registra" accept-charset="UTF-8" action="registraCrudServicio" method="post" enctype="multipart/form-data">
-						
-											<div class="form-group">
-		                                        <label class="col-form-label" for="id_reg_nombre">Nombre</label>
-													<input class="form-control" id="id_reg_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="20"/>
-		                                    </div>
-		                                    <div class="form-group">
-		                                        <label class="col-form-label" for="id_reg_descripcion">Descripcion</label>
-													<input class="form-control" id="id_reg_descripcion" name="descripcion" placeholder="Ingrese la descripcion" type="text" maxlength="20"/>
-		                                    </div>
-		                                    
-		                                    <div class="form-group">
-		                                        <label class="col-form-label" for="id_reg_precio">Precio</label>
-													<input class="form-control floatNumber" id="id_reg_precio" name="precio" placeholder="Ingrese el Precio" type="text" maxlength="20"/>
-		                                    </div>
-		                                   
-		                                    
-		                                    <div class="form-group">
-		                                        <label class="col-form-label" for="id_act_fecha">Fecha de Servicio</label>
-		                                       
-													<input class="form-control" id="id_act_fecha" name="fecha" placeholder="Ingrese la fecha de servicio" type="date" />
-		                                       
-		                                    </div> 
-		                   
-		                                     
-		                                    <div class="form-group my-2">
-		                                        <div class="col-lg-9 col-lg-offset-3">
-		                                        	<button type="submit" class="btn btn-primary" id="id_btn_registra">REGISTRAR</button>
-		                                        </div>
-		                                    </div>
-		                              
-		                </form>   
-				
-				</div>
-			</div>
-		</div>
-			
 		</div>
   
 		 <div class="modal fade" id="id_div_modal_actualiza" >
@@ -103,28 +52,31 @@
 						<form id="id_form_actualiza" accept-charset="UTF-8"  action="actualizaCrudProducto"  method="post" enctype="multipart/form-data">
 		                    
 		                                	<div class="form-group">
-		                                        <label class="col-form-label" for="id_act_idservicio">idservicio</label>
-													<input class="form-control" id="id_act_idservicio" name="idservicio" type="text" />
+		                                        <label class="col-form-label" for="id_act_idservicio">Id Boleta</label>
+													<input class="form-control" id="id_act_idservicio" name="idboleta" type="text" readonly />
+		                                    </div>
+		                                    
+		                                  
+		                                    <div class="form-group">
+		                                        <label class="col-form-label" for="id_act_descripcion">Estado</label>
+											   <select class="form-control" name="estado">
+												  <option value="1">Revision de Pago</option>
+												  <option value="2" selected>En Camino</option>
+												  <option value="3">Recibido</option>
+												</select>
+													
+												
 		                                    </div>
 		                                    
 		                                    <div class="form-group">
-		                                        <label class="col-form-label" for="id_act_nombre">Nombre</label>
-													<input class="form-control" id="id_act_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="20"/>
-		                                    </div>
-		                                    <div class="form-group">
-		                                        <label class="col-form-label" for="id_act_descripcion">Descripcion</label>
-													<input class="form-control" id="id_act_descripcion" name="descripcion" placeholder="Ingrese la descripcion" type="text" maxlength="20"/>
-		                                    </div>
-		                                    
-		                                    <div class="form-group">
-		                                        <label class="col-form-label" for="id_act_precio">Precio</label>
-													<input class="form-control" id="id_act_precio" name="precio" placeholder="Ingrese el Precio" type="text" maxlength="20" />
+		                                        <label class="col-form-label" for="id_act_precio">Cliente</label>
+													<input class="form-control" id="id_act_precio" name="cliente.idCliente" value="" placeholder="Ingrese el Precio" type="text" maxlength="20" readonly readonly />
 		                                    </div>
 		                                  
 		                                    <div class="form-group">
-		                                        <label class="col-form-label" for="id_act_fecha">Fecha de Servicio</label>
+		                                    
 		                                       
-													<input class="form-control" id="id_act_fecha" name="fecha" placeholder="Ingrese la fecha de servicio" type="date" />
+													<input class="form-control" id="id_act_fecha" name="usuario.idUsuario" value="1" placeholder="Ingrese la fecha de servicio" type="text" hidden />
 		                                       
 		                                    </div> 
 		                                                
@@ -243,10 +195,17 @@
 
 		$("#id_btn_filtrar").click(function(){
 			var fil=$("#id_txt_filtro").val();
-			$.getJSON("consultaCrudServicio",{"filtro":fil}, function (lista){
+			$.getJSON("listaBoletas",{"filtro":fil}, function (lista){
 				agregarGrilla(lista);
 			});
 		});
+		
+   function listarTodoBoletas(){
+	   var fil=$("#id_txt_filtro").val();
+		$.getJSON("listaBoletas",{"filtro":fil}, function (lista){
+			agregarGrilla(lista);
+		});
+   }
 		
 	
 	function agregarGrilla(lista){
@@ -254,38 +213,40 @@
 		 $('#id_table').DataTable().destroy();
 		 $('#id_table').DataTable({
 				data: lista,
-				searching: false,
+				searching: true,
 				ordering: true,
 				processing: true,
 				pageLength: 5,
 				lengthChange: false,
 				columns:[
-					{data: "idservicio"},
-					{data: "nombre"},
-					{data: "descripcion"},
-					{data: "precio"},
-					
-					{data: "fecha"},					
+					{data: "idboleta"},
+					{data: "fecha"},
 					{data: function(row, type, val, meta){
-					    var salida='<button type="button" style="width: 90px" class="btn btn-info btn-sm" onclick="editar(\''+row.idservicio + '\',\'' + row.nombre +'\',\'' + row.descripcion  + '\',\'' + row.precio + '\',\'' +  row.horario + '\',\'' +  row.fecha +'\')">Editar</button>';					   
+						if(row.estado==1){
+						return	'En revision de pago'
+						}else if(row.estado==2){
+						return 	'En Camino'
+						}else{
+						return	'Recibido'
+						}
+					},className:'text-center'},	
+					
+					{data: "cliente.nombre"},
+					{data: "cliente.correo"},
+					
+					{data: "detallesBoleta[0].producto.nombre"},					
+					{data: function(row, type, val, meta){
+					    var salida='<button type="button" style="width: 90px" class="btn btn-info btn-sm" onclick="editar(\''+row.idboleta + '\',\'' + row.fecha +'\',\'' + row.estado  + '\',\'' + row.cliente.idCliente + '\')">Editar</button>';					   
 						return salida;
 					},className:'text-center'},	
 					{data: function(row, type, val, meta){
-					    var salida='<button type="button" style="width: 90px" class="btn btn-danger btn-sm" onclick="eliminar(\'' + row.idservicio + '\')">Eliminar</button>';
+					    var salida='<button type="button" style="width: 90px" class="btn btn-danger btn-sm" onclick="eliminar(\'' + row.idboleta + '\')">Eliminar</button>';
 						return salida;
 					},className:'text-center'},													
 				]                                     
 		    });
 	}
 	
-	function listarServicios(){
-		fetch('consultaCrudServicio?filtro=')
-		.then(response => response.json())
-		.then(data =>{
-			agregarGrilla(data)
-			console.log(data)
-		})
-	}
 	
 	
 	function eliminar(id){	
@@ -300,19 +261,14 @@
 
 	}
 	
-	function accionEliminar(id){	
-		
 	
-	}
 	
-	function editar(id,nombre,descripcion,precio,horario,fecha){	
-		console.log('Hola?');
+	function editar(id,fecha,estado,cliente,producto){	
 			$('#id_act_idservicio').val(id);
-			$('#id_act_nombre').val(nombre);
-			$('#id_act_descripcion').val(descripcion);
-			$('#id_act_precio').val(precio);
-			$('#id_act_horario').val(horario);
-			$('#id_act_fecha').val(fecha);
+			$('#id_act_nombre').val(fecha);
+			$('#id_act_descripcion').val(estado);
+			$('#id_act_precio').val(cliente);
+			
 			$('#id_div_modal_actualiza').modal("show");
 	}
 	
@@ -330,31 +286,6 @@
 		$('#modal_registra').modal("show");
 	})
 	
-	
-	$("#id_btn_registra").click(function(){
-		var validator = $('#id_form_registra').data('bootstrapValidator');
-	    validator.validate();
-		
-	    if (validator.isValid()) {
-	        $.ajax({
-	          type: "POST",
-	          url: "registraCrudServicio", 
-	          data: $('#id_form_registra').serialize(),
-	          success: function(data){
-	        	  agregarGrilla(data.lista);
-	        	  $('#modal_registra').modal("hide");
-	        	  alertify.success('Añadido con exito')
-				listarServicios()
-	        	  //mostrarMensaje(data.mensaje);
-
-	          },
-	          error: function(){
-	        	  alertify.error('Error al añadir')
-	          }
-	        });
-	        
-	    }
-	});
 
 	$("#id_btn_actualiza").click(function(){
 		console.log('ingresó al evento actualizar')
@@ -364,13 +295,13 @@
 	    if (validator.isValid()) {
 	        $.ajax({
 	          type: "POST",
-	          url: "actualizaCrudServicio", 
+	          url: "actualizaBoleta", 
 	          data: $('#id_form_actualiza').serialize(),
 	          success: function(data){
-	        	  agregarGrilla(data.lista);
+	        	  listarTodoBoletas()
 	        	  $('#id_div_modal_actualiza').modal("hide");
 	        	  alertify.success('Actualizado con exito')
-				listarServicios()
+	        	  limpiarFormulario();
 	        	//  mostrarMensaje(data.mensaje);
 	          },
 	          error: function(){

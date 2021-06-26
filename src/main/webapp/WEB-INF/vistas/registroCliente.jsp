@@ -1,4 +1,4 @@
-<jsp:include page="reusable/header.jsp"/>
+<jsp:include page="papelera/header.jsp"/>
 <!DOCTYPE html>
 <html lang="esS" >
 <head>
@@ -7,11 +7,11 @@
 
 <title>Registra Mascota</title>
 </head>
-<body style="background-color: #F2F2F2;">
-<jsp:include page="reusable/navegacion.jsp"/>
+<body style="background-color: #fff;">
+<jsp:include page="papelera/navegacion.jsp"/>
   
-<div class="row col-md-12" >
-                    <div class="col-md-10 m-auto">
+
+                    <div class="col-md-10 m-auto" style="margin:0 10% ;">
                         <div class="p-3">
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Mi Cuenta</h1>
@@ -72,20 +72,7 @@
                                     </div>
                                 </div>
                                 
-                                
-                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <label for="dniRegistro" class="form-label">Dni</label>
-                                        <input type="number" class="form-control form-control-user"
-                                            id="idDni" placeholder="Ingresa dni" name="dni" value="${sessionScope.objUsuario.dni}">
-                                    </div>
-                                    <div class="col-sm-6">
-                                    <label for="telefonoRegistro" class="form-label">Telefono</label>
-                                        <input type="number" class="form-control form-control-user"
-                                            id="telefonoRegistro" placeholder="Ingresa telefono" name="telefono"
-                                            maxlength="9" value="${sessionScope.objUsuario.telefono}">
-                                    </div>
-                                </div>
+                              
                                 <div class="form-group my-2">
 		                              <div class="col-lg-9 col-lg-offset-3">
 		                                    <button type="button" class="btn btn-primary" id="id_btn_registra">ACTUALIZAR</button>
@@ -97,10 +84,10 @@
                             </form>
                            </div>
                           </div>
-                         </div>
+                       
                          <br>
 
-<jsp:include page="reusable/footer.jsp"/>
+<jsp:include page="papelera/footer.jsp"/>
 <script type="text/javascript">
 $("#success-alert").fadeTo(1000, 500).slideUp(500, function(){
     $("#success-alert").slideUp(500);
@@ -122,20 +109,11 @@ $("#id_btn_registra").click(function(){
           url: "actualizaCrudCliente", 
           data: $('#id_form_registra').serialize(),
           success: function(data){
-        	  
         	  console.log(data.lista)
-        	  Swal.fire(
-				      'Actualizado',
-				      'Sus datos han sido actualizados',
-				      'success'
-				    )
+        	  alertify.alert('Actualizado', 'Datos Actualizados!', function(){ alertify.success('Correcto'); });
           },
           error: function(){
-        	  Swal.fire(
-				      'Error!',
-				      'No se pudo Registrar',
-				      'danger'
-				    )
+        	  alertify.error('Error al Actualizar.'); 
           }
         });
         

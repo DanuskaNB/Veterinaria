@@ -11,7 +11,7 @@
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	  	  <div class="navbar-header">
 		       <div class="navbar-header">
-	     		 <a class="navbar-brand" href="#">ENTRE PATAS | Sistema de Delivery de Productos de Mascotas</a>
+	     		 <a class="navbar-brand" href="#">Scobby Store</a>
 	  			</div>
 	  	</div>
 	  
