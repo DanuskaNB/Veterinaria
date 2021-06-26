@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="esS" >
 <head>
+<script> (function(b,c){var e=document.createElement('link');e.rel='stylesheet',e.type='text/css',e.href='https://chatboxlive.blahbox.net/static/css/main.css',document.getElementsByTagName('head')[0].appendChild(e); var f=document.createElement('script');f.onload=function(){var g;if(c)g='previewInit';else{var h=document.createElement('div');g='cbinit',h.id='cbinit',document.body.append(h)} console.log(document.querySelector('#'+g)),chatbox.initChat(document.querySelector('#'+g),b,c)},f.src='https://chatboxlive.blahbox.net/static/js/chat-lib.js',document.getElementsByTagName('head')[0].appendChild(f)}) ('0dea4737237629a956eaa4ceeb21b542', 0); </script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -198,7 +200,10 @@
                 <h1 class="text-md font-semibold mt-5 text-left">Producto 1 de prueba- Comida para perro</h1>
                 <p class="text-red-600 text-lg text-right font-bold mt-2 mb-3">S/.500.00</p>
                 <button class="bg-red-600 w-full py-2 px-6 mt-4 mb-3 text-white font-semibold">Comprar</button>                
-            </div>                  
+            </div> 
+            
+		
+                             
         </div>
 	</div>
 

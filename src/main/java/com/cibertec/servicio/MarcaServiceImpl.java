@@ -1,23 +1,25 @@
 package com.cibertec.servicio;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cibertec.entidad.Marca;
-import com.cibertec.repositorio.MarcaRepositorio;
+import com.cibertec.repositorio.MarcaRepository;
+
+
 
 @Service
-public class MarcaServiceImpl implements MarcaService {
+public class MarcaServiceImpl implements MarcaService{
 
 	@Autowired
-	private MarcaRepositorio repository;
-	
+	private MarcaRepository repository;
 
 	@Override
-	public List<Marca> listarTodos() {
+	public List<Marca> listadoMarca() {
 		return repository.findAll();
 	}
+
+	
 }
