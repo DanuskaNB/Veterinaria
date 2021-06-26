@@ -116,6 +116,7 @@
         console.log('hola')
     }
     ver();
+    console.log('holii');
      
     </script>
     <script>
