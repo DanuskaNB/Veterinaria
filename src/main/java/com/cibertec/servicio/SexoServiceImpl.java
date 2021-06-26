@@ -5,17 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cibertec.entidad.Categoria;
-import com.cibertec.repositorio.CategoriaRepository;
+import com.cibertec.entidad.Sexo;
+import com.cibertec.repositorio.SexoRepository;
 
 @Service
-public class CategoriaServiceImpl implements CategoriaService{
+public class SexoServiceImpl implements SexoService{
 
 	@Autowired
-	private CategoriaRepository repository;
+	private SexoRepository repository;
 
 	@Override
-	public List<Categoria> listaCategoria() {
+	public List<Sexo> listaSexo() {
 		return repository.findAll();
 	}
 
