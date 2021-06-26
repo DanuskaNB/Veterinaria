@@ -1,6 +1,7 @@
 package com.cibertec.servicio;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,19 +14,31 @@ public class MascotaServiceImpl implements MascotaService{
 
 	@Autowired
 	private MascotaRepository repository;
-	
+
 	@Override
-	public Mascota insertaMascota(Mascota obj) {
+	public List<Mascota> listaMascota() {
+		return repository.findAll();
+	}
+
+	@Override
+	public Mascota insertaActualizaMascota(Mascota obj) {
 		return repository.save(obj);
 	}
 
-	//@Override
-	//public List<Mascota> listaMascota(String filtro) {
-		//return repository.listaMascota(filtro+"%");
+	@Override
+	public void eliminaMascota(int id) {
+		repository.deleteById(id);
+	}
+
+	@Override
+	public List<Mascota> listaMascotaPorNombreLike(String filtro, int filtro1) {
+		return repository.listaMascotaPorNombreLike(filtro, filtro1);
+	}
+
+	@Override
+	public Optional<Mascota> obtienePorId(int idmascota) {
+		return repository.findById(idmascota);
+	}
 	
-	//}
-
 	
-
-
 }

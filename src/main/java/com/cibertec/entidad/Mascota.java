@@ -1,6 +1,6 @@
 package com.cibertec.entidad;
 
-
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,96 +11,87 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.general.util.FunctionUtil;
 
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Table(name = "mascota")
+@Table(name = "tb_mascota")
 public class Mascota {
-
-	@Column(name = "idMascota")
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idMascota;
+	@Column(name = "idmascota")
+	private Integer idmascota;
 	
 	@Column(name = "nombre")
 	private String nombre;
-	
+
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idTipoMascota")
-	private TipoMascota tipomascota;
+	@JoinColumn(name = "idsexPet")
+	private Sexo sexo;
 	
-	@Column(name = "raza")
-	private String raza;
+	@Column(name = "color")
+	private String color;
 	
-	@Column(name = "descripcion")
-	private String descripcion;
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "fechaNacimiento")
+	private Date fechaNacimiento;
 	
-	@Column(name="foto")
-	private byte[] foto;
-	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idUsuario")
-	private Usuario usuario;
-
-	public int getIdMascota() {
-		return idMascota;
+	public String getStrFechaFormateada() {
+		return FunctionUtil.toFechaString(fechaNacimiento);
 	}
+	@JoinColumn(name = "idcliente")
+	@Column(name = "idcliente")
+	private Integer idcliente;
 
-	public void setIdMascota(int idMascota) {
-		this.idMascota = idMascota;
+	public Integer getIdmascota() {
+		return idmascota;
 	}
-
+	public void setIdmascota(Integer idmascota) {
+		this.idmascota = idmascota;
+	}
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	public TipoMascota getTipomascota() {
-		return tipomascota;
+	
+	public Sexo getSexo() {
+		return sexo;
 	}
-
-	public void setTipomascota(TipoMascota tipomascota) {
-		this.tipomascota = tipomascota;
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
 	}
-
-	public String getRaza() {
-		return raza;
+	public String getColor() {
+		return color;
 	}
-
-	public void setRaza(String raza) {
-		this.raza = raza;
+	public void setColor(String color) {
+		this.color = color;
 	}
-
-	public String getDescripcion() {
-		return descripcion;
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
 	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
-
-	public byte[] getFoto() {
-		return foto;
+	public Integer getIdcliente() {
+		return idcliente;
 	}
-
-	public void setFoto(byte[] foto) {
-		this.foto = foto;
+	public void setIdcliente(Integer idcliente) {
+		this.idcliente = idcliente;
 	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+	
 	
 	
 	

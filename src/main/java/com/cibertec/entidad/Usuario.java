@@ -1,38 +1,47 @@
 package com.cibertec.entidad;
 
-import java.util.Date;
+import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
-@Table(name = "usuario")
+@Table(name = "tb_usuario")
 public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idusuario", unique = true, nullable = false, length = 10)
 	private int idUsuario;
-	private String nombres;
-	private String apellidos;
-	private int dni;
+
+	@Column(length = 45)
+	private String nombre;
+
+	@Column(length = 45)
 	private String login;
-	private String password;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date fechaRegistro;
-	
-	private String direccion;
-	
+	@Column(length = 45)
+	private String clave;
 
-	public String getNombreCompleto() {
-		return nombres.concat(" ").concat(apellidos);
-	}
-	
+	@Column(length = 45)
+	private String correo;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "usuario")
+	private List<Boleta> boletas;
+
 	public int getIdUsuario() {
 		return idUsuario;
 	}
@@ -41,30 +50,12 @@ public class Usuario {
 		this.idUsuario = idUsuario;
 	}
 
-	public String getNombres() {
-		return nombres;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setNombres(String nombres) {
-		this.nombres = nombres;
-	}
-
-	public String getApellidos() {
-		return apellidos;
-	}
-
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
-
-
-
-	public int getDni() {
-		return dni;
-	}
-
-	public void setDni(int dni) {
-		this.dni = dni;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public String getLogin() {
@@ -75,30 +66,30 @@ public class Usuario {
 		this.login = login;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getClave() {
+		return clave;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setClave(String clave) {
+		this.clave = clave;
 	}
 
-	public Date getFechaRegistro() {
-		return fechaRegistro;
+	public String getCorreo() {
+		return correo;
 	}
 
-	public void setFechaRegistro(Date fechaRegistro) {
-		this.fechaRegistro = fechaRegistro;
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 
-	public String getDireccion() {
-		return direccion;
+	public List<Boleta> getBoletas() {
+		return boletas;
 	}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+	public void setBoletas(List<Boleta> boletas) {
+		this.boletas = boletas;
 	}
-
-
 	
+	
+
 }
