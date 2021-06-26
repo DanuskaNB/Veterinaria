@@ -10,26 +10,27 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
 @Entity
-@Table(name = "tb_proveedor")
-public class Proveedor {
+@Table(name = "tb_especie")
+public class Especie {
 
+	@Column(name = "idespecie")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idproveedor")
-	private int idproveedor;
+	private int idespecie;
 	
 	@Column(name = "nombre")
 	private String nombre;
+	
+	@Column(name = "raza")
+	private String raza;
 
-	public int getIdproveedor() {
-		return idproveedor;
+	public int getIdespecie() {
+		return idespecie;
 	}
 
-	public void setIdproveedor(int idproveedor) {
-		this.idproveedor = idproveedor;
+	public void setIdespecie(int idespecie) {
+		this.idespecie = idespecie;
 	}
 
 	public String getNombre() {
@@ -39,6 +40,17 @@ public class Proveedor {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	public String getRaza() {
+		return raza;
+	}
+
+	public void setRaza(String raza) {
+		this.raza = raza;
+	}
+	
+	
+	
 	
 	
 }
