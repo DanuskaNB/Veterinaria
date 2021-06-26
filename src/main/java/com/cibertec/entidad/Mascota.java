@@ -19,9 +19,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.general.util.FunctionUtil;
 
-import lombok.Getter;
-import lombok.Setter;
-
 @Entity
 @Table(name = "tb_mascota")
 public class Mascota {

@@ -34,21 +34,7 @@ public class ClienteController {
 	public List<Cliente> listadoCliente() {
 		return service.listaCliente();
 	}
-
-	@RequestMapping("/registraCliente")
-	public String registra(Cliente obj, Model m, HttpSession session) {
-		Cliente aux = service.insertaCliente(obj);
-		List<Cliente> lista = service.listaCliente();
-		m.addAttribute("prueba", lista);
-		if (aux == null) {
-			session.setAttribute("MENSAJE", "Registro erróneo");
-		} else {
-			session.setAttribute("MENSAJE", "Registro exitos");
-		}
-
-		return "registroCliente";
-	}
-
+	
 	@RequestMapping("/intranetRegistraUsuario")
 	public String metRegistra(Cliente obj, HttpSession session) {
 		Cliente aux = service.insertaCliente(obj);
@@ -73,8 +59,21 @@ public class ClienteController {
 		}
 
 	}
-	
-	/* probando */
+
+	@RequestMapping("/registraCliente")
+	public String registra(Cliente obj, Model m, HttpSession session) {
+		Cliente aux = service.insertaCliente(obj);
+		List<Cliente> lista = service.listaCliente();
+		m.addAttribute("prueba", lista);
+		if (aux == null) {
+			session.setAttribute("MENSAJE", "Registro erróneo");
+		} else {
+			session.setAttribute("MENSAJE", "Registro exitos");
+		}
+
+		return "registroCliente";
+	}
+
 
 	@RequestMapping("/actualizaCrudCliente")
 	@ResponseBody
@@ -100,8 +99,6 @@ public class ClienteController {
 		}
 		return salida;
 	}
-
-////ELIMINA CLIENTE
 
 	@RequestMapping("/eliminaCliente")
 	@ResponseBody

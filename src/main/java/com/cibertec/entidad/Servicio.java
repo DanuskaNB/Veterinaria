@@ -13,28 +13,24 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import lombok.Getter;
-import lombok.Setter;
-
 @Entity
 @Table(name = "tb_servicio")
 public class Servicio {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idservicio")
 	private Integer idservicio;
-	
+
 	@Column(name = "nombre")
 	private String nombre;
-	
+
 	@Column(name = "descripcion")
 	private String descripcion;
-	
+
 	@Column(name = "precio")
 	private double precio;
-	
-	
+
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "fechaServicio")
@@ -72,7 +68,6 @@ public class Servicio {
 		this.precio = precio;
 	}
 
-
 	public Date getFecha() {
 		return fecha;
 	}
@@ -87,6 +82,4 @@ public class Servicio {
 				+ ", precio=" + precio + ", fecha=" + fecha + "]";
 	}
 
-
-	
 }

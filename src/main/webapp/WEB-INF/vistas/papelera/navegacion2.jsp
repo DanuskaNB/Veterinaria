@@ -1,7 +1,4 @@
-
-		<!-- HEADER -->
 		<header>
-			<!-- TOP HEADER -->
 			<div id="top-header">
 				<div class="container">
 					<ul class="header-links pull-left">
@@ -15,9 +12,6 @@
 					</ul>
 				</div>
 			</div>
-			<!-- /TOP HEADER -->
-
-			<!-- MAIN HEADER -->
 			<div id="header">
 				<!-- container -->
 				<div class="container">
@@ -31,9 +25,6 @@
 								</a>
 							
 						</div>
-						<!-- /LOGO -->
-
-						<!-- SEARCH BAR -->
 						<div class="col-md-6">
 							<div class="header-search">
 								<form>
@@ -47,12 +38,8 @@
 								</form>
 							</div>
 						</div>
-						<!-- /SEARCH BAR -->
-
-			<!-- /MAIN HEADER -->
 		</header>
-    <script>
-   
+    <script> 
    const title = document.querySelector('.title');
    const verUsuario = () =>{
 	   if(`${sessionScope.objUsuario.idCliente}`){
@@ -60,7 +47,6 @@
 	   }else{
 		   title.textContent = 'Scobby'
 	   }
-	  // `${sessionScope.objUsuario.idCliente}` : `${sessionScope.objUsuario.idCliente}`  ? Entre Patas
    }
    
     verUsuario();
