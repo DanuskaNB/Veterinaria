@@ -8,15 +8,13 @@ import org.springframework.data.domain.Pageable;
 import com.cibertec.entidad.Servicio;
 
 public interface ServicioService {
-	
 
-	public abstract List<Servicio> listaServicios();
+	public abstract List<Servicio> listaServicio();
 	public abstract Servicio insertaActualizaServicio(Servicio obj);
-	public abstract Optional<Servicio> buscaPorId(int id);
-	public abstract void eliminaServicio (int id);
-	public abstract List<Servicio> listaPorTurnoLike(String filtro);
-	public abstract List<Servicio> listarIdServicio(int idProducto);
+	public abstract Optional<Servicio> obtienePorId(int idServicio);
+	public abstract void eliminaServicio(int id);
+	public abstract List<Servicio> listaServicioPorNombreLike(String filtro);
 	
-	public List<Servicio> listaservicio(String filtro, Pageable pegable);
-
+	public List<Servicio> listaServicio(String filtro, Pageable pegable);
+	
 }

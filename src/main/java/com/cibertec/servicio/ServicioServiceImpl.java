@@ -11,54 +11,40 @@ import com.cibertec.entidad.Servicio;
 import com.cibertec.repositorio.ServicioRepository;
 
 @Service
-public class ServicioServiceImpl implements ServicioService {
+public class ServicioServiceImpl implements ServicioService{
 
 	@Autowired
-	private ServicioRepository repositorio;
+	private ServicioRepository repository;
 
-	
-	
+	@Override
+	public List<Servicio> listaServicio() {
+		return repository.findAll();
+	}
+
 	@Override
 	public Servicio insertaActualizaServicio(Servicio obj) {
-		return repositorio.save(obj);
+		return repository.save(obj);
 	}
 
-	
 	@Override
 	public void eliminaServicio(int id) {
-		repositorio.deleteById(id);
-
+		repository.deleteById(id);
 	}
 
 	@Override
-	public List<Servicio> listaPorTurnoLike(String filtro) {
-		return repositorio.listaPorTurnoLike(filtro);
+	public List<Servicio> listaServicioPorNombreLike(String filtro) {
+		return repository.listaServicioPorNombreLike(filtro);
 	}
 
-	
 	@Override
-	public Optional<Servicio> buscaPorId(int id) {
-		return repositorio.findById(id);
-	}
-	
-	@Override
-	public List<Servicio> listarIdServicio(int idServicio) {
-		// TODO Auto-generated method stub
-		return repositorio.findByidServicio(idServicio);
-	}
-	
-	
-	
-	@Override
-	public List<Servicio> listaservicio(String filtro, Pageable pageable) {
-		return repositorio.listaservicio(filtro, pageable);
+	public Optional<Servicio> obtienePorId(int idServicio) {
+		return repository.findById(idServicio);
 	}
 
-
 	@Override
-	public List<Servicio> listaServicios() {
-		return repositorio.findAll();
+	public List<Servicio> listaServicio(String filtro, Pageable pageable) {
+		return repository.listaServicio(filtro, pageable);
 	}
 	
-
+	
 }

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cibertec.entidad.Cliente;
 
-import com.cibertec.servicio.ClienteServicio;
+import com.cibertec.servicio.ClienteService;
 
 
 /**
@@ -30,7 +30,7 @@ public class RegistroClienteController {
 	UbigeoServicio servicioUbi1;
 */
 	@Autowired
-	ClienteServicio servicio;
+	ClienteService servicio;
 /*
 	@ResponseBody
 	@RequestMapping("/listaDepartamentos")
