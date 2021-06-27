@@ -20,13 +20,10 @@
 <link rel="stylesheet" href="css/font-awesome.min.css">
 
 <link type="text/css" rel="stylesheet" href="css/style.css"/>
-
 </head>
 <body>
 <jsp:include page="papelera/navegacion.jsp"/>
 
-   
-<!-- SECTION -->
 		<div class="section">
 			<!-- container -->
 			<div class="container">
@@ -78,9 +75,6 @@
 			</div>
 			<!-- /container -->
 		</div>
-		<!-- /SECTION -->
-
-		<!-- SECTION -->
 		<div class="section">
 			<!-- container -->
 			<div class="container">
@@ -111,13 +105,9 @@
 							</div>
 						</div>
 					</div>
-					<!-- Products tab & slick -->
 				</div>
-				<!-- /row -->
 			</div>
-			<!-- /container -->
 		</div>
-
 <script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/slick.min.js"></script>
