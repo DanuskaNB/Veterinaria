@@ -14,13 +14,13 @@ import com.cibertec.servicio.SexoService;
 public class SexoController {
 	
 	@Autowired
-	private SexoService service;
+	private SexoService Sexoservice;
 
 	
 	@RequestMapping("/listarSexo")
 	@ResponseBody
 	public List<Sexo> lista(String filtro) {
-		return service.listaSexo();
+		return Sexoservice.listaSexo();
 	}
 	
 }
