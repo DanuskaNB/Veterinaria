@@ -1,6 +1,6 @@
       <jsp:include page="../papelera/opciones.jsp"/>
        
-<h4>Registro de Citas</h4>
+<h4>Registro de Consultas</h4>
 
 	
 		<div class="modal fade" id="idBuscaMascota">

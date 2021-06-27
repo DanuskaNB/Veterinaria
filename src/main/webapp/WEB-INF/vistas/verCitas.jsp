@@ -1,7 +1,7 @@
 <jsp:include page="papelera/header.jsp"/>
 <body style="background-color: #ffffff;">
 <jsp:include page="papelera/navegacion2.jsp"/>
-<h4>Consulta tu Cita</h4>
+<h4>Consultas</h4>
 
 	 	 <div class="modal fade " id="modal_registra" >
 			<div class="modal-dialog">	
