@@ -1,11 +1,6 @@
-
-
-    <!-- Page Wrapper -->
-      <jsp:include page="../papelera/opciones.jsp"/>
-       
-<h4>Clientes</h4>
-
-					
+ <jsp:include page="../papelera/opciones.jsp"/>
+      
+<h4>Clientes</h4>					
 		<div class="col-md-10" style="margin:0 20%;" > 
 						<div class="col-md-11 table-responsive">
 						
@@ -18,8 +13,7 @@
 												<th >Correo</th>
 												<th >Contraseña</th>
 												<th>Fecha Nacimiento</th>
-												<th >Lugar Entrega</th>
-								
+												<th >Lugar Entrega</th>								
 												<th >Tipo</th>
 											  	<th >Actualiza </th>
 												<th >Elimina </th>
